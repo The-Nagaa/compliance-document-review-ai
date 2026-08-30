@@ -1,0 +1,1922 @@
+{
+  "doc_001": {
+    "id": "47366674-7b5d-4efe-80a0-2ca376bc843e",
+    "document_id": "doc_001",
+    "summary": "AI summary unavailable.",
+    "status": "unavailable",
+    "generated_at": "2026-08-29T16:09:54.954074+00:00",
+    "masked_text": "string",
+    "error_message": "AI assist unavailable: Gemini API key is not configured. The document is still accessible for manual review.",
+    "retryable": true,
+    "flags": [
+      {
+        "id": "2c623315-9416-4888-a123-d75eaa45b59b",
+        "analysis_id": "47366674-7b5d-4efe-80a0-2ca376bc843e",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-001",
+        "matched_rule": "Required Disclosure: SEC_RIA_DISCLOSURE",
+        "explanation": "Required disclosure 'SEC_RIA_DISCLOSURE' was not detected in document (max match: 0.0%).",
+        "severity": "medium"
+      },
+      {
+        "id": "b05f9216-e104-4da9-99c7-2b2d84bd97da",
+        "analysis_id": "47366674-7b5d-4efe-80a0-2ca376bc843e",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-002",
+        "matched_rule": "Required Disclosure: PAST_PERFORMANCE",
+        "explanation": "Required disclosure 'PAST_PERFORMANCE' was not detected in document (max match: 9.1%).",
+        "severity": "high"
+      },
+      {
+        "id": "e1d789e0-e43e-49cd-8bfc-dbd8cd2547a9",
+        "analysis_id": "47366674-7b5d-4efe-80a0-2ca376bc843e",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-003",
+        "matched_rule": "Required Disclosure: FINRA_SIPC_MEMBERSHIP",
+        "explanation": "Required disclosure 'FINRA_SIPC_MEMBERSHIP' was not detected in document (max match: 0.0%).",
+        "severity": "medium"
+      },
+      {
+        "id": "50c7f077-3464-4b6f-b711-d7ff6152176d",
+        "analysis_id": "47366674-7b5d-4efe-80a0-2ca376bc843e",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-004",
+        "matched_rule": "Required Disclosure: TAX_LEGAL_DISCLAIMER",
+        "explanation": "Required disclosure 'TAX_LEGAL_DISCLAIMER' was not detected in document (max match: 10.0%).",
+        "severity": "medium"
+      },
+      {
+        "id": "6b29565d-6a7b-4059-9516-156b16b147e2",
+        "analysis_id": "47366674-7b5d-4efe-80a0-2ca376bc843e",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-005",
+        "matched_rule": "Required Disclosure: HYPOTHETICAL_PERFORMANCE",
+        "explanation": "Required disclosure 'HYPOTHETICAL_PERFORMANCE' was not detected in document (max match: 18.2%).",
+        "severity": "high"
+      },
+      {
+        "id": "d0153efe-bfd2-4872-a30c-639b287f5cbf",
+        "analysis_id": "47366674-7b5d-4efe-80a0-2ca376bc843e",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-006",
+        "matched_rule": "Required Disclosure: GENERAL_RISK_OF_LOSS",
+        "explanation": "Required disclosure 'GENERAL_RISK_OF_LOSS' was not detected in document (max match: 5.3%).",
+        "severity": "high"
+      },
+      {
+        "id": "7e6a4ed0-4263-48b2-bcec-fa1d5253f763",
+        "analysis_id": "47366674-7b5d-4efe-80a0-2ca376bc843e",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-007",
+        "matched_rule": "Required Disclosure: FORM_ADV_BROCHURE",
+        "explanation": "Required disclosure 'FORM_ADV_BROCHURE' was not detected in document (max match: 0.0%).",
+        "severity": "medium"
+      },
+      {
+        "id": "7a06a5f3-9d6c-4ec8-95ec-9bb4cfc1bda6",
+        "analysis_id": "47366674-7b5d-4efe-80a0-2ca376bc843e",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-008",
+        "matched_rule": "Required Disclosure: THIRD_PARTY_RANKING",
+        "explanation": "Required disclosure 'THIRD_PARTY_RANKING' was not detected in document (max match: 0.0%).",
+        "severity": "medium"
+      },
+      {
+        "id": "aabf191a-d746-46d8-8818-a2617d85342b",
+        "analysis_id": "47366674-7b5d-4efe-80a0-2ca376bc843e",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-009",
+        "matched_rule": "Required Disclosure: TESTIMONIAL_DISCLAIMER",
+        "explanation": "Required disclosure 'TESTIMONIAL_DISCLAIMER' was not detected in document (max match: 8.0%).",
+        "severity": "medium"
+      },
+      {
+        "id": "19e781f3-f131-4706-bdc7-cfe19c582a9b",
+        "analysis_id": "47366674-7b5d-4efe-80a0-2ca376bc843e",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-010",
+        "matched_rule": "Required Disclosure: DIGITAL_ASSET_RISK",
+        "explanation": "Required disclosure 'DIGITAL_ASSET_RISK' was not detected in document (max match: 6.0%).",
+        "severity": "high"
+      },
+      {
+        "id": "c703226c-7bbf-4101-83d6-5e5908582786",
+        "analysis_id": "47366674-7b5d-4efe-80a0-2ca376bc843e",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-011",
+        "matched_rule": "Required Disclosure: PRIVATE_PLACEMENT_ACCREDITED",
+        "explanation": "Required disclosure 'PRIVATE_PLACEMENT_ACCREDITED' was not detected in document (max match: 1.2%).",
+        "severity": "medium"
+      },
+      {
+        "id": "32eff127-bb7a-4d5d-9ed4-d7a9ab492aa9",
+        "analysis_id": "47366674-7b5d-4efe-80a0-2ca376bc843e",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-012",
+        "matched_rule": "Required Disclosure: OPTIONS_DISCLOSURE",
+        "explanation": "Required disclosure 'OPTIONS_DISCLOSURE' was not detected in document (max match: 6.7%).",
+        "severity": "medium"
+      },
+      {
+        "id": "e8deae40-512e-41b6-899f-598ec4daa16e",
+        "analysis_id": "47366674-7b5d-4efe-80a0-2ca376bc843e",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-013",
+        "matched_rule": "Required Disclosure: INSURANCE_GUARANTEE",
+        "explanation": "Required disclosure 'INSURANCE_GUARANTEE' was not detected in document (max match: 0.0%).",
+        "severity": "medium"
+      },
+      {
+        "id": "20080cf9-3a64-4b38-8c34-fea63adeb700",
+        "analysis_id": "47366674-7b5d-4efe-80a0-2ca376bc843e",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-014",
+        "matched_rule": "Required Disclosure: MUNICIPAL_TAX_DISCLAIMER",
+        "explanation": "Required disclosure 'MUNICIPAL_TAX_DISCLAIMER' was not detected in document (max match: 0.2%).",
+        "severity": "medium"
+      },
+      {
+        "id": "643e6548-3303-4b73-a3e3-c9b371f5c4f4",
+        "analysis_id": "47366674-7b5d-4efe-80a0-2ca376bc843e",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-015",
+        "matched_rule": "Required Disclosure: INTERNATIONAL_INVESTING",
+        "explanation": "Required disclosure 'INTERNATIONAL_INVESTING' was not detected in document (max match: 2.7%).",
+        "severity": "medium"
+      },
+      {
+        "id": "80cb0b4c-ff97-44bc-846a-2370fd9de9ce",
+        "analysis_id": "47366674-7b5d-4efe-80a0-2ca376bc843e",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-016",
+        "matched_rule": "Required Disclosure: BENCHMARK_UNMANAGED_INDEX",
+        "explanation": "Required disclosure 'BENCHMARK_UNMANAGED_INDEX' was not detected in document (max match: 8.9%).",
+        "severity": "medium"
+      },
+      {
+        "id": "75520ae5-2e58-46ad-b33f-3e3bfc4315ef",
+        "analysis_id": "47366674-7b5d-4efe-80a0-2ca376bc843e",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-017",
+        "matched_rule": "Required Disclosure: FIXED_INCOME_RISK",
+        "explanation": "Required disclosure 'FIXED_INCOME_RISK' was not detected in document (max match: 7.3%).",
+        "severity": "high"
+      },
+      {
+        "id": "6caeaa60-0246-4d16-a9b5-624d3f14bb19",
+        "analysis_id": "47366674-7b5d-4efe-80a0-2ca376bc843e",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-018",
+        "matched_rule": "Required Disclosure: MARGIN_RISK",
+        "explanation": "Required disclosure 'MARGIN_RISK' was not detected in document (max match: 2.8%).",
+        "severity": "high"
+      },
+      {
+        "id": "d9eeb32c-b60e-42db-9f59-a7614c61c355",
+        "analysis_id": "47366674-7b5d-4efe-80a0-2ca376bc843e",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-019",
+        "matched_rule": "Required Disclosure: REAL_ESTATE_RISK",
+        "explanation": "Required disclosure 'REAL_ESTATE_RISK' was not detected in document (max match: 0.5%).",
+        "severity": "high"
+      },
+      {
+        "id": "ffb762dd-3f77-4b24-a10d-4249a531ad95",
+        "analysis_id": "47366674-7b5d-4efe-80a0-2ca376bc843e",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-020",
+        "matched_rule": "Required Disclosure: FEE_IMPACT_DISCLOSURE",
+        "explanation": "Required disclosure 'FEE_IMPACT_DISCLOSURE' was not detected in document (max match: 12.5%).",
+        "severity": "medium"
+      },
+      {
+        "id": "029d3622-477e-4454-ae87-cef87f908663",
+        "analysis_id": "47366674-7b5d-4efe-80a0-2ca376bc843e",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-021",
+        "matched_rule": "Required Disclosure: ESG_DISCLOSURE",
+        "explanation": "Required disclosure 'ESG_DISCLOSURE' was not detected in document (max match: 5.4%).",
+        "severity": "medium"
+      },
+      {
+        "id": "29bfbbb4-9acb-4900-a37f-812fe2a59cb4",
+        "analysis_id": "47366674-7b5d-4efe-80a0-2ca376bc843e",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-022",
+        "matched_rule": "Required Disclosure: STRUCTURED_NOTES",
+        "explanation": "Required disclosure 'STRUCTURED_NOTES' was not detected in document (max match: 4.0%).",
+        "severity": "medium"
+      },
+      {
+        "id": "65a0a58f-a830-4e65-b1a2-af5f69d2d77e",
+        "analysis_id": "47366674-7b5d-4efe-80a0-2ca376bc843e",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-023",
+        "matched_rule": "Required Disclosure: PRIVACY_POLICY_REG_SP",
+        "explanation": "Required disclosure 'PRIVACY_POLICY_REG_SP' was not detected in document (max match: 3.9%).",
+        "severity": "medium"
+      },
+      {
+        "id": "ca473a60-d23b-441e-8516-b9a28babeb07",
+        "analysis_id": "47366674-7b5d-4efe-80a0-2ca376bc843e",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-024",
+        "matched_rule": "Required Disclosure: GROSS_OF_FEES_WARNING",
+        "explanation": "Required disclosure 'GROSS_OF_FEES_WARNING' was not detected in document (max match: 0.0%).",
+        "severity": "medium"
+      },
+      {
+        "id": "6f0c6417-fe4f-4495-88dc-d886cb476dcc",
+        "analysis_id": "47366674-7b5d-4efe-80a0-2ca376bc843e",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-025",
+        "matched_rule": "Required Disclosure: GENERAL_INFORMATIONAL_ONLY",
+        "explanation": "Required disclosure 'GENERAL_INFORMATIONAL_ONLY' was not detected in document (max match: 10.6%).",
+        "severity": "medium"
+      }
+    ],
+    "precedents": [
+      {
+        "document_id": "PREC-DOC-0157",
+        "similarity": 0.1488,
+        "previous_decision": "needs_revision",
+        "officer_comment": "Needs Revision. Please add the standard 'Past performance is no guarantee of future results' disclaimer (RULE-010) and include the net-of-fees return schedule (RULE-011) before distribution.",
+        "excerpt": "Document Title: Structured Note Strategy Review for [CLIENT_2] (Ref: [ACCOUNT_1]).\nPrepared by Senior Advisor for compliance review.\nQuarterly performance report for account [ACCOUNT_1]. Shows 3-year ..."
+      },
+      {
+        "document_id": "PREC-DOC-0145",
+        "similarity": 0.1373,
+        "previous_decision": "needs_revision",
+        "officer_comment": "Needs Revision. Please add the standard 'Past performance is no guarantee of future results' disclaimer (RULE-010) and include the net-of-fees return schedule (RULE-011) before distribution.",
+        "excerpt": "Document Title: Tax-Loss Harvesting Guide Review for [CLIENT_5] (Ref: [ACCOUNT_5]).\nPrepared by Senior Advisor for compliance review.\nQuarterly performance report for account [ACCOUNT_1]. Shows 3-year..."
+      },
+      {
+        "document_id": "PREC-DOC-0121",
+        "similarity": 0.1326,
+        "previous_decision": "needs_revision",
+        "officer_comment": "Needs Revision. Please add the standard 'Past performance is no guarantee of future results' disclaimer (RULE-010) and include the net-of-fees return schedule (RULE-011) before distribution.",
+        "excerpt": "Document Title: Tech Growth Equity Review for [CLIENT_1] (Ref: [ACCOUNT_5]).\nPrepared by Senior Advisor for compliance review.\nQuarterly performance report for account [ACCOUNT_1]. Shows 3-year histor..."
+      }
+    ],
+    "disclosures_checked": [
+      {
+        "disclosure_id": "DISC-001",
+        "disclosure_type": "SEC_RIA_DISCLOSURE",
+        "disclosure_text": "Advisory services offered through Beacon Wealth Management LLC, an SEC Registered Investment Advisor.",
+        "is_present": false,
+        "similarity_score": 0.0,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-002",
+        "disclosure_type": "PAST_PERFORMANCE",
+        "disclosure_text": "Past performance is no guarantee of future results. Investments are subject to market risk, including possible loss of the principal amount invested.",
+        "is_present": false,
+        "similarity_score": 0.0908,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-003",
+        "disclosure_type": "FINRA_SIPC_MEMBERSHIP",
+        "disclosure_text": "Securities offered through Horizon Financial Services, Member FINRA/SIPC. Investment advisory products are not FDIC insured.",
+        "is_present": false,
+        "similarity_score": 0.0,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-004",
+        "disclosure_type": "TAX_LEGAL_DISCLAIMER",
+        "disclosure_text": "Beacon Wealth Management LLC does not provide tax, legal, or accounting advice. Please consult your individual tax professional regarding your personal situation.",
+        "is_present": false,
+        "similarity_score": 0.0995,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-005",
+        "disclosure_type": "HYPOTHETICAL_PERFORMANCE",
+        "disclosure_text": "Hypothetical performance results have many inherent limitations and do not represent actual trading. No representation is being made that any account will achieve profits or losses similar to those shown.",
+        "is_present": false,
+        "similarity_score": 0.182,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-006",
+        "disclosure_type": "GENERAL_RISK_OF_LOSS",
+        "disclosure_text": "All investing involves risk, including the potential loss of principal. There can be no assurance that any investment strategy will be successful or profitable.",
+        "is_present": false,
+        "similarity_score": 0.0534,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-007",
+        "disclosure_type": "FORM_ADV_BROCHURE",
+        "disclosure_text": "For complete information regarding advisory fees, billing practices, and conflicts of interest, please review our Form ADV Part 2A Brochure available at advisorinfo.sec.gov.",
+        "is_present": false,
+        "similarity_score": 0.0,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-008",
+        "disclosure_type": "THIRD_PARTY_RANKING",
+        "disclosure_text": "Rankings, awards, and recognitions by unaffiliated publications are based on quantitative and qualitative criteria and should not be construed as an endorsement of the advisor.",
+        "is_present": false,
+        "similarity_score": 0.0,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-009",
+        "disclosure_type": "TESTIMONIAL_DISCLAIMER",
+        "disclosure_text": "Testimonials and endorsements may not be representative of the experience of other clients and do not guarantee future investment performance or satisfaction.",
+        "is_present": false,
+        "similarity_score": 0.0798,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-010",
+        "disclosure_type": "DIGITAL_ASSET_RISK",
+        "disclosure_text": "Digital assets and cryptocurrencies are highly volatile, speculative, and not protected by SIPC or FDIC insurance.",
+        "is_present": false,
+        "similarity_score": 0.0596,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-011",
+        "disclosure_type": "PRIVATE_PLACEMENT_ACCREDITED",
+        "disclosure_text": "Alternative investments and private placements are illiquid, speculative, and suitable only for accredited or qualified institutional investors.",
+        "is_present": false,
+        "similarity_score": 0.012,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-012",
+        "disclosure_type": "OPTIONS_DISCLOSURE",
+        "disclosure_text": "Options trading involves substantial risk and is not suitable for all investors. Prior to buying or selling options, read the Characteristics and Risks of Standardized Options.",
+        "is_present": false,
+        "similarity_score": 0.0671,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-013",
+        "disclosure_type": "INSURANCE_GUARANTEE",
+        "disclosure_text": "Insurance and annuity product guarantees are backed solely by the financial strength and claims-paying ability of the issuing insurance company.",
+        "is_present": false,
+        "similarity_score": 0.0,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-014",
+        "disclosure_type": "MUNICIPAL_TAX_DISCLAIMER",
+        "disclosure_text": "Municipal bond interest may be subject to the alternative minimum tax (AMT) and state or local taxes depending on the investor's residency.",
+        "is_present": false,
+        "similarity_score": 0.0019,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-015",
+        "disclosure_type": "INTERNATIONAL_INVESTING",
+        "disclosure_text": "International and emerging market investments involve currency exchange fluctuations, political instability, and differing accounting standards.",
+        "is_present": false,
+        "similarity_score": 0.0274,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-016",
+        "disclosure_type": "BENCHMARK_UNMANAGED_INDEX",
+        "disclosure_text": "Indices are unmanaged and cannot be invested in directly. Index performance does not reflect the deduction of management fees, transaction costs, or expenses.",
+        "is_present": false,
+        "similarity_score": 0.0895,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-017",
+        "disclosure_type": "FIXED_INCOME_RISK",
+        "disclosure_text": "Fixed income securities are subject to interest rate risk, credit risk, inflation risk, and reinvestment risk.",
+        "is_present": false,
+        "similarity_score": 0.0735,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-018",
+        "disclosure_type": "MARGIN_RISK",
+        "disclosure_text": "Margin trading carries a high level of risk and may result in losses exceeding the initial deposit. Please review our Margin Disclosure Statement.",
+        "is_present": false,
+        "similarity_score": 0.0275,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-019",
+        "disclosure_type": "REAL_ESTATE_RISK",
+        "disclosure_text": "Real estate investments are subject to fluctuations in property values, tenancy risks, leverage, and economic downturns.",
+        "is_present": false,
+        "similarity_score": 0.0048,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-020",
+        "disclosure_type": "FEE_IMPACT_DISCLOSURE",
+        "disclosure_text": "Fee deductions reduce overall portfolio returns. Net returns shown reflect the maximum annual management fee of 1.00% unless specified otherwise.",
+        "is_present": false,
+        "similarity_score": 0.125,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-021",
+        "disclosure_type": "ESG_DISCLOSURE",
+        "disclosure_text": "ESG and sustainable investing strategies may limit the universe of available investments and may not align with traditional benchmark allocations.",
+        "is_present": false,
+        "similarity_score": 0.0538,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-022",
+        "disclosure_type": "STRUCTURED_NOTES",
+        "disclosure_text": "Structured notes are complex debt securities subject to credit risk of the issuing financial institution and may experience principal loss.",
+        "is_present": false,
+        "similarity_score": 0.0405,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-023",
+        "disclosure_type": "PRIVACY_POLICY_REG_SP",
+        "disclosure_text": "Our firm's privacy policy explaining how we safeguard non-public personal information under Regulation S-P is available upon request.",
+        "is_present": false,
+        "similarity_score": 0.0386,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-024",
+        "disclosure_type": "GROSS_OF_FEES_WARNING",
+        "disclosure_text": "Performance calculations presented gross of fees do not reflect advisory fee deductions, which compound over time to reduce net returns.",
+        "is_present": false,
+        "similarity_score": 0.0,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-025",
+        "disclosure_type": "GENERAL_INFORMATIONAL_ONLY",
+        "disclosure_text": "Material contained herein is for informational and educational purposes only and does not constitute an offer to buy or sell securities.",
+        "is_present": false,
+        "similarity_score": 0.1057,
+        "best_matching_passage": null
+      }
+    ]
+  },
+  "GEMINI-TEST-001": {
+    "id": "f4c60cf8-5980-47e9-8cce-b5c957f458ed",
+    "document_id": "GEMINI-TEST-001",
+    "summary": "AI summary unavailable.",
+    "status": "unavailable",
+    "generated_at": "2026-08-30T16:27:17.356025+00:00",
+    "masked_text": "Client Name: [CLIENT_1]\nEmail: [EMAIL_1]\nPhone: [PHONE_1]\nAccount Number: [ACCOUNT_1]\n\nInvestment Proposal\n\nOur Quantitative Growth Strategy guarantees a 20% annual return with zero risk of loss. Historical performance proves investors cannot lose money with this strategy.",
+    "error_message": "AI assist unavailable: Gemini model 'gemini-2.5-flash' is invalid or not found (HTTP 404). The document is still accessible for manual review.",
+    "retryable": true,
+    "flags": [
+      {
+        "id": "08206493-5ab4-403e-b9fb-27d38d6652cb",
+        "analysis_id": "f4c60cf8-5980-47e9-8cce-b5c957f458ed",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-001",
+        "matched_rule": "Required Disclosure: SEC_RIA_DISCLOSURE",
+        "explanation": "Required disclosure 'SEC_RIA_DISCLOSURE' was not detected in document (max match: 17.6%).",
+        "severity": "medium"
+      },
+      {
+        "id": "e227daab-e41e-4202-8903-107e2534c544",
+        "analysis_id": "f4c60cf8-5980-47e9-8cce-b5c957f458ed",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-002",
+        "matched_rule": "Required Disclosure: PAST_PERFORMANCE",
+        "explanation": "Required disclosure 'PAST_PERFORMANCE' was not detected in document (max match: 62.3%).",
+        "severity": "high"
+      },
+      {
+        "id": "55c5b377-137f-4a4a-9b1e-b0279e9d6db8",
+        "analysis_id": "f4c60cf8-5980-47e9-8cce-b5c957f458ed",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-003",
+        "matched_rule": "Required Disclosure: FINRA_SIPC_MEMBERSHIP",
+        "explanation": "Required disclosure 'FINRA_SIPC_MEMBERSHIP' was not detected in document (max match: 20.1%).",
+        "severity": "medium"
+      },
+      {
+        "id": "b16af80d-4f54-4ddd-bd01-48a6e2b3075b",
+        "analysis_id": "f4c60cf8-5980-47e9-8cce-b5c957f458ed",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-004",
+        "matched_rule": "Required Disclosure: TAX_LEGAL_DISCLAIMER",
+        "explanation": "Required disclosure 'TAX_LEGAL_DISCLAIMER' was not detected in document (max match: 28.2%).",
+        "severity": "medium"
+      },
+      {
+        "id": "ae7f0072-8abd-41b1-b239-2d71a6dde6f0",
+        "analysis_id": "f4c60cf8-5980-47e9-8cce-b5c957f458ed",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-005",
+        "matched_rule": "Required Disclosure: HYPOTHETICAL_PERFORMANCE",
+        "explanation": "Required disclosure 'HYPOTHETICAL_PERFORMANCE' was not detected in document (max match: 38.3%).",
+        "severity": "high"
+      },
+      {
+        "id": "3bc6795e-e172-4d68-ae54-53f3dfbf8f76",
+        "analysis_id": "f4c60cf8-5980-47e9-8cce-b5c957f458ed",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-006",
+        "matched_rule": "Required Disclosure: GENERAL_RISK_OF_LOSS",
+        "explanation": "Required disclosure 'GENERAL_RISK_OF_LOSS' was not detected in document (max match: 26.1%).",
+        "severity": "high"
+      },
+      {
+        "id": "8070b616-a8d7-4fc6-93b1-295eaab4d652",
+        "analysis_id": "f4c60cf8-5980-47e9-8cce-b5c957f458ed",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-007",
+        "matched_rule": "Required Disclosure: FORM_ADV_BROCHURE",
+        "explanation": "Required disclosure 'FORM_ADV_BROCHURE' was not detected in document (max match: 23.7%).",
+        "severity": "medium"
+      },
+      {
+        "id": "507dc5fc-7d28-4611-8acc-52dd7ce06869",
+        "analysis_id": "f4c60cf8-5980-47e9-8cce-b5c957f458ed",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-008",
+        "matched_rule": "Required Disclosure: THIRD_PARTY_RANKING",
+        "explanation": "Required disclosure 'THIRD_PARTY_RANKING' was not detected in document (max match: 21.2%).",
+        "severity": "medium"
+      },
+      {
+        "id": "b8fd6463-1107-45b3-8689-a7a334eb8a5c",
+        "analysis_id": "f4c60cf8-5980-47e9-8cce-b5c957f458ed",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-009",
+        "matched_rule": "Required Disclosure: TESTIMONIAL_DISCLAIMER",
+        "explanation": "Required disclosure 'TESTIMONIAL_DISCLAIMER' was not detected in document (max match: 38.0%).",
+        "severity": "medium"
+      },
+      {
+        "id": "d738c2cb-ea93-4f3c-b5fd-e61beb2a3036",
+        "analysis_id": "f4c60cf8-5980-47e9-8cce-b5c957f458ed",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-010",
+        "matched_rule": "Required Disclosure: DIGITAL_ASSET_RISK",
+        "explanation": "Required disclosure 'DIGITAL_ASSET_RISK' was not detected in document (max match: 16.3%).",
+        "severity": "high"
+      },
+      {
+        "id": "3c5cf2fc-c45b-46be-bb9f-184b62b0d3fc",
+        "analysis_id": "f4c60cf8-5980-47e9-8cce-b5c957f458ed",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-011",
+        "matched_rule": "Required Disclosure: PRIVATE_PLACEMENT_ACCREDITED",
+        "explanation": "Required disclosure 'PRIVATE_PLACEMENT_ACCREDITED' was not detected in document (max match: 19.1%).",
+        "severity": "medium"
+      },
+      {
+        "id": "089812ed-a03b-4500-851c-6f496c245ea5",
+        "analysis_id": "f4c60cf8-5980-47e9-8cce-b5c957f458ed",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-012",
+        "matched_rule": "Required Disclosure: OPTIONS_DISCLOSURE",
+        "explanation": "Required disclosure 'OPTIONS_DISCLOSURE' was not detected in document (max match: 36.7%).",
+        "severity": "medium"
+      },
+      {
+        "id": "77a7c208-ae11-4dd7-aad0-d218bf33f3fa",
+        "analysis_id": "f4c60cf8-5980-47e9-8cce-b5c957f458ed",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-013",
+        "matched_rule": "Required Disclosure: INSURANCE_GUARANTEE",
+        "explanation": "Required disclosure 'INSURANCE_GUARANTEE' was not detected in document (max match: 25.8%).",
+        "severity": "medium"
+      },
+      {
+        "id": "18ea9db2-8ec2-40f0-b6e6-0d7de5699890",
+        "analysis_id": "f4c60cf8-5980-47e9-8cce-b5c957f458ed",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-014",
+        "matched_rule": "Required Disclosure: MUNICIPAL_TAX_DISCLAIMER",
+        "explanation": "Required disclosure 'MUNICIPAL_TAX_DISCLAIMER' was not detected in document (max match: 5.5%).",
+        "severity": "medium"
+      },
+      {
+        "id": "bbf83485-7a8c-4aa3-86a8-a7454e8f1086",
+        "analysis_id": "f4c60cf8-5980-47e9-8cce-b5c957f458ed",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-015",
+        "matched_rule": "Required Disclosure: INTERNATIONAL_INVESTING",
+        "explanation": "Required disclosure 'INTERNATIONAL_INVESTING' was not detected in document (max match: 14.5%).",
+        "severity": "medium"
+      },
+      {
+        "id": "b5285940-162b-4b43-b766-338486db1e36",
+        "analysis_id": "f4c60cf8-5980-47e9-8cce-b5c957f458ed",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-016",
+        "matched_rule": "Required Disclosure: BENCHMARK_UNMANAGED_INDEX",
+        "explanation": "Required disclosure 'BENCHMARK_UNMANAGED_INDEX' was not detected in document (max match: 45.8%).",
+        "severity": "medium"
+      },
+      {
+        "id": "7d0fbc30-f389-481d-a721-9b7da907abb5",
+        "analysis_id": "f4c60cf8-5980-47e9-8cce-b5c957f458ed",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-017",
+        "matched_rule": "Required Disclosure: FIXED_INCOME_RISK",
+        "explanation": "Required disclosure 'FIXED_INCOME_RISK' was not detected in document (max match: 29.9%).",
+        "severity": "high"
+      },
+      {
+        "id": "7bb37c12-e30e-4b70-94ee-d22f8e94327b",
+        "analysis_id": "f4c60cf8-5980-47e9-8cce-b5c957f458ed",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-018",
+        "matched_rule": "Required Disclosure: MARGIN_RISK",
+        "explanation": "Required disclosure 'MARGIN_RISK' was not detected in document (max match: 38.0%).",
+        "severity": "high"
+      },
+      {
+        "id": "a5bbc3ca-ef7b-4964-8408-1541c3f259ad",
+        "analysis_id": "f4c60cf8-5980-47e9-8cce-b5c957f458ed",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-019",
+        "matched_rule": "Required Disclosure: REAL_ESTATE_RISK",
+        "explanation": "Required disclosure 'REAL_ESTATE_RISK' was not detected in document (max match: 24.0%).",
+        "severity": "high"
+      },
+      {
+        "id": "0e82a5a5-2b31-4530-afde-5cc6aebfc026",
+        "analysis_id": "f4c60cf8-5980-47e9-8cce-b5c957f458ed",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-020",
+        "matched_rule": "Required Disclosure: FEE_IMPACT_DISCLOSURE",
+        "explanation": "Required disclosure 'FEE_IMPACT_DISCLOSURE' was not detected in document (max match: 36.9%).",
+        "severity": "medium"
+      },
+      {
+        "id": "d1c9112d-f34a-41d0-bd2b-52f6690989da",
+        "analysis_id": "f4c60cf8-5980-47e9-8cce-b5c957f458ed",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-021",
+        "matched_rule": "Required Disclosure: ESG_DISCLOSURE",
+        "explanation": "Required disclosure 'ESG_DISCLOSURE' was not detected in document (max match: 19.4%).",
+        "severity": "medium"
+      },
+      {
+        "id": "05695a94-0d62-4bf5-9b4f-7aa24a612b6b",
+        "analysis_id": "f4c60cf8-5980-47e9-8cce-b5c957f458ed",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-022",
+        "matched_rule": "Required Disclosure: STRUCTURED_NOTES",
+        "explanation": "Required disclosure 'STRUCTURED_NOTES' was not detected in document (max match: 34.0%).",
+        "severity": "medium"
+      },
+      {
+        "id": "d70631e8-6397-4813-b9b8-4ad4d033cd7b",
+        "analysis_id": "f4c60cf8-5980-47e9-8cce-b5c957f458ed",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-023",
+        "matched_rule": "Required Disclosure: PRIVACY_POLICY_REG_SP",
+        "explanation": "Required disclosure 'PRIVACY_POLICY_REG_SP' was not detected in document (max match: 6.7%).",
+        "severity": "medium"
+      },
+      {
+        "id": "b85798d4-b46f-4a92-9287-24a58c51f23c",
+        "analysis_id": "f4c60cf8-5980-47e9-8cce-b5c957f458ed",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-024",
+        "matched_rule": "Required Disclosure: GROSS_OF_FEES_WARNING",
+        "explanation": "Required disclosure 'GROSS_OF_FEES_WARNING' was not detected in document (max match: 38.5%).",
+        "severity": "medium"
+      },
+      {
+        "id": "8e0b8c75-09b7-44be-9685-911c5303d71d",
+        "analysis_id": "f4c60cf8-5980-47e9-8cce-b5c957f458ed",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-025",
+        "matched_rule": "Required Disclosure: GENERAL_INFORMATIONAL_ONLY",
+        "explanation": "Required disclosure 'GENERAL_INFORMATIONAL_ONLY' was not detected in document (max match: 1.1%).",
+        "severity": "medium"
+      }
+    ],
+    "precedents": [
+      {
+        "document_id": "PREC-DOC-0193",
+        "similarity": 0.4455,
+        "previous_decision": "needs_revision",
+        "officer_comment": "Needs Revision. Please add the standard 'Past performance is no guarantee of future results' disclaimer (RULE-010) and include the net-of-fees return schedule (RULE-011) before distribution.",
+        "excerpt": "Document Title: Treasury Inflation-Protected Securities Review for [CLIENT_3] (Ref: [ACCOUNT_5]).\nPrepared by Senior Advisor for compliance review.\nQuarterly performance report for account [ACCOUNT_1]..."
+      },
+      {
+        "document_id": "PREC-DOC-0133",
+        "similarity": 0.4434,
+        "previous_decision": "needs_revision",
+        "officer_comment": "Needs Revision. Please add the standard 'Past performance is no guarantee of future results' disclaimer (RULE-010) and include the net-of-fees return schedule (RULE-011) before distribution.",
+        "excerpt": "Document Title: Treasury Inflation-Protected Securities Review for [CLIENT_3] (Ref: [ACCOUNT_1]).\nPrepared by Senior Advisor for compliance review.\nQuarterly performance report for account [ACCOUNT_1]..."
+      },
+      {
+        "document_id": "PREC-DOC-0145",
+        "similarity": 0.4409,
+        "previous_decision": "needs_revision",
+        "officer_comment": "Needs Revision. Please add the standard 'Past performance is no guarantee of future results' disclaimer (RULE-010) and include the net-of-fees return schedule (RULE-011) before distribution.",
+        "excerpt": "Document Title: Tax-Loss Harvesting Guide Review for [CLIENT_5] (Ref: [ACCOUNT_5]).\nPrepared by Senior Advisor for compliance review.\nQuarterly performance report for account [ACCOUNT_1]. Shows 3-year..."
+      }
+    ],
+    "disclosures_checked": [
+      {
+        "disclosure_id": "DISC-001",
+        "disclosure_type": "SEC_RIA_DISCLOSURE",
+        "disclosure_text": "Advisory services offered through Beacon Wealth Management LLC, an SEC Registered Investment Advisor.",
+        "is_present": false,
+        "similarity_score": 0.1756,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-002",
+        "disclosure_type": "PAST_PERFORMANCE",
+        "disclosure_text": "Past performance is no guarantee of future results. Investments are subject to market risk, including possible loss of the principal amount invested.",
+        "is_present": false,
+        "similarity_score": 0.623,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-003",
+        "disclosure_type": "FINRA_SIPC_MEMBERSHIP",
+        "disclosure_text": "Securities offered through Horizon Financial Services, Member FINRA/SIPC. Investment advisory products are not FDIC insured.",
+        "is_present": false,
+        "similarity_score": 0.2007,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-004",
+        "disclosure_type": "TAX_LEGAL_DISCLAIMER",
+        "disclosure_text": "Beacon Wealth Management LLC does not provide tax, legal, or accounting advice. Please consult your individual tax professional regarding your personal situation.",
+        "is_present": false,
+        "similarity_score": 0.2818,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-005",
+        "disclosure_type": "HYPOTHETICAL_PERFORMANCE",
+        "disclosure_text": "Hypothetical performance results have many inherent limitations and do not represent actual trading. No representation is being made that any account will achieve profits or losses similar to those shown.",
+        "is_present": false,
+        "similarity_score": 0.3826,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-006",
+        "disclosure_type": "GENERAL_RISK_OF_LOSS",
+        "disclosure_text": "All investing involves risk, including the potential loss of principal. There can be no assurance that any investment strategy will be successful or profitable.",
+        "is_present": false,
+        "similarity_score": 0.2612,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-007",
+        "disclosure_type": "FORM_ADV_BROCHURE",
+        "disclosure_text": "For complete information regarding advisory fees, billing practices, and conflicts of interest, please review our Form ADV Part 2A Brochure available at advisorinfo.sec.gov.",
+        "is_present": false,
+        "similarity_score": 0.2373,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-008",
+        "disclosure_type": "THIRD_PARTY_RANKING",
+        "disclosure_text": "Rankings, awards, and recognitions by unaffiliated publications are based on quantitative and qualitative criteria and should not be construed as an endorsement of the advisor.",
+        "is_present": false,
+        "similarity_score": 0.2119,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-009",
+        "disclosure_type": "TESTIMONIAL_DISCLAIMER",
+        "disclosure_text": "Testimonials and endorsements may not be representative of the experience of other clients and do not guarantee future investment performance or satisfaction.",
+        "is_present": false,
+        "similarity_score": 0.3804,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-010",
+        "disclosure_type": "DIGITAL_ASSET_RISK",
+        "disclosure_text": "Digital assets and cryptocurrencies are highly volatile, speculative, and not protected by SIPC or FDIC insurance.",
+        "is_present": false,
+        "similarity_score": 0.1629,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-011",
+        "disclosure_type": "PRIVATE_PLACEMENT_ACCREDITED",
+        "disclosure_text": "Alternative investments and private placements are illiquid, speculative, and suitable only for accredited or qualified institutional investors.",
+        "is_present": false,
+        "similarity_score": 0.1914,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-012",
+        "disclosure_type": "OPTIONS_DISCLOSURE",
+        "disclosure_text": "Options trading involves substantial risk and is not suitable for all investors. Prior to buying or selling options, read the Characteristics and Risks of Standardized Options.",
+        "is_present": false,
+        "similarity_score": 0.3671,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-013",
+        "disclosure_type": "INSURANCE_GUARANTEE",
+        "disclosure_text": "Insurance and annuity product guarantees are backed solely by the financial strength and claims-paying ability of the issuing insurance company.",
+        "is_present": false,
+        "similarity_score": 0.2581,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-014",
+        "disclosure_type": "MUNICIPAL_TAX_DISCLAIMER",
+        "disclosure_text": "Municipal bond interest may be subject to the alternative minimum tax (AMT) and state or local taxes depending on the investor's residency.",
+        "is_present": false,
+        "similarity_score": 0.0554,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-015",
+        "disclosure_type": "INTERNATIONAL_INVESTING",
+        "disclosure_text": "International and emerging market investments involve currency exchange fluctuations, political instability, and differing accounting standards.",
+        "is_present": false,
+        "similarity_score": 0.1453,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-016",
+        "disclosure_type": "BENCHMARK_UNMANAGED_INDEX",
+        "disclosure_text": "Indices are unmanaged and cannot be invested in directly. Index performance does not reflect the deduction of management fees, transaction costs, or expenses.",
+        "is_present": false,
+        "similarity_score": 0.4581,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-017",
+        "disclosure_type": "FIXED_INCOME_RISK",
+        "disclosure_text": "Fixed income securities are subject to interest rate risk, credit risk, inflation risk, and reinvestment risk.",
+        "is_present": false,
+        "similarity_score": 0.2986,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-018",
+        "disclosure_type": "MARGIN_RISK",
+        "disclosure_text": "Margin trading carries a high level of risk and may result in losses exceeding the initial deposit. Please review our Margin Disclosure Statement.",
+        "is_present": false,
+        "similarity_score": 0.3803,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-019",
+        "disclosure_type": "REAL_ESTATE_RISK",
+        "disclosure_text": "Real estate investments are subject to fluctuations in property values, tenancy risks, leverage, and economic downturns.",
+        "is_present": false,
+        "similarity_score": 0.2398,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-020",
+        "disclosure_type": "FEE_IMPACT_DISCLOSURE",
+        "disclosure_text": "Fee deductions reduce overall portfolio returns. Net returns shown reflect the maximum annual management fee of 1.00% unless specified otherwise.",
+        "is_present": false,
+        "similarity_score": 0.3692,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-021",
+        "disclosure_type": "ESG_DISCLOSURE",
+        "disclosure_text": "ESG and sustainable investing strategies may limit the universe of available investments and may not align with traditional benchmark allocations.",
+        "is_present": false,
+        "similarity_score": 0.1937,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-022",
+        "disclosure_type": "STRUCTURED_NOTES",
+        "disclosure_text": "Structured notes are complex debt securities subject to credit risk of the issuing financial institution and may experience principal loss.",
+        "is_present": false,
+        "similarity_score": 0.3399,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-023",
+        "disclosure_type": "PRIVACY_POLICY_REG_SP",
+        "disclosure_text": "Our firm's privacy policy explaining how we safeguard non-public personal information under Regulation S-P is available upon request.",
+        "is_present": false,
+        "similarity_score": 0.0669,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-024",
+        "disclosure_type": "GROSS_OF_FEES_WARNING",
+        "disclosure_text": "Performance calculations presented gross of fees do not reflect advisory fee deductions, which compound over time to reduce net returns.",
+        "is_present": false,
+        "similarity_score": 0.3851,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-025",
+        "disclosure_type": "GENERAL_INFORMATIONAL_ONLY",
+        "disclosure_text": "Material contained herein is for informational and educational purposes only and does not constitute an offer to buy or sell securities.",
+        "is_present": false,
+        "similarity_score": 0.0108,
+        "best_matching_passage": null
+      }
+    ]
+  },
+  "MANUAL-AI-001": {
+    "id": "8781b5e7-0193-42d5-ba43-3b5d1d85c383",
+    "document_id": "MANUAL-AI-001",
+    "summary": "This document is an investment proposal created for client [CLIENT_1] regarding a Quantitative Growth Strategy. Its primary purpose is to solicit investment by promising high annual returns based on historical performance. Significant compliance attention is required due to prohibited return guarantees, missing risk disclosures, and improper references to past performance.",
+    "status": "completed",
+    "generated_at": "2026-08-30T17:11:50.649438+00:00",
+    "masked_text": "Client Name: [CLIENT_1]\nEmail: [EMAIL_1]\nPhone: [PHONE_1]\nAccount Number: [ACCOUNT_1]\n\nInvestment Proposal\n\nOur Quantitative Growth Strategy guarantees a 20% annual return with zero risk of loss. Historical performance proves investors cannot lose money with this strategy.",
+    "error_message": null,
+    "retryable": false,
+    "flags": [
+      {
+        "id": "8aa49bb3-432d-4119-bb28-68692c8d0a53",
+        "analysis_id": "8781b5e7-0193-42d5-ba43-3b5d1d85c383",
+        "passage_excerpt": "Our Quantitative Growth Strategy guarantees a 20% annual return with zero risk of loss.",
+        "matched_rule_id": "RULE-001",
+        "matched_rule": "Prohibition of Guaranteed Returns: Communications must never state or imply that any investment return or profit is guaranteed, assured, or risk-free.",
+        "explanation": "The passage explicitly promises a guaranteed annual return and claims zero risk, directly violating the prohibition against guaranteed return claims.",
+        "severity": "high"
+      },
+      {
+        "id": "e15d114f-9478-4db6-bfbd-c01563f3b51c",
+        "analysis_id": "8781b5e7-0193-42d5-ba43-3b5d1d85c383",
+        "passage_excerpt": "Our Quantitative Growth Strategy guarantees a 20% annual return with zero risk of loss.",
+        "matched_rule_id": "RULE-015",
+        "matched_rule": "Unsubstantiated Return Targets: Stating specific forward-looking percentage return targets without detailed risk scenarios and probability models is prohibited.",
+        "explanation": "The text states a specific 20% forward-looking return target without including the required risk scenarios or probability models.",
+        "severity": "high"
+      },
+      {
+        "id": "828375e5-b951-4bd5-ad6f-8f6e8998f931",
+        "analysis_id": "8781b5e7-0193-42d5-ba43-3b5d1d85c383",
+        "passage_excerpt": "Historical performance proves investors cannot lose money with this strategy.",
+        "matched_rule_id": "RULE-010",
+        "matched_rule": "Past Performance Disclaimer: Any reference to past investment performance or historical returns must be accompanied by the statement 'Past performance is no guarantee of future results.'",
+        "explanation": "The document references historical performance without accompanying it with the mandatory past performance disclaimer.",
+        "severity": "medium"
+      },
+      {
+        "id": "be8b50fa-41ee-404d-bf3e-89f4e8a8b68c",
+        "analysis_id": "8781b5e7-0193-42d5-ba43-3b5d1d85c383",
+        "passage_excerpt": "Historical performance proves investors cannot lose money with this strategy.",
+        "matched_rule_id": "RULE-021",
+        "matched_rule": "Risk of Loss Disclosure: All investment presentations must contain the prominent disclosure: 'Investing in securities involves risk of loss that clients should be prepared to bear.'",
+        "explanation": "The investment presentation fails to include the required mandatory disclosure stating that investing involves a risk of loss.",
+        "severity": "high"
+      },
+      {
+        "id": "5541549b-c56a-423a-85c9-b64466a4715a",
+        "analysis_id": "8781b5e7-0193-42d5-ba43-3b5d1d85c383",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-001",
+        "matched_rule": "Required Disclosure: SEC_RIA_DISCLOSURE",
+        "explanation": "Required disclosure 'SEC_RIA_DISCLOSURE' was not detected in document (max match: 17.6%).",
+        "severity": "medium"
+      },
+      {
+        "id": "ae28eacc-1884-4e32-ab48-e59311176eae",
+        "analysis_id": "8781b5e7-0193-42d5-ba43-3b5d1d85c383",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-002",
+        "matched_rule": "Required Disclosure: PAST_PERFORMANCE",
+        "explanation": "Required disclosure 'PAST_PERFORMANCE' was not detected in document (max match: 62.3%).",
+        "severity": "high"
+      },
+      {
+        "id": "ab6c75ab-cc1e-4d34-9c45-080e5f317762",
+        "analysis_id": "8781b5e7-0193-42d5-ba43-3b5d1d85c383",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-003",
+        "matched_rule": "Required Disclosure: FINRA_SIPC_MEMBERSHIP",
+        "explanation": "Required disclosure 'FINRA_SIPC_MEMBERSHIP' was not detected in document (max match: 20.1%).",
+        "severity": "medium"
+      },
+      {
+        "id": "6a887d6b-09ff-4418-b716-5d9b65216cbd",
+        "analysis_id": "8781b5e7-0193-42d5-ba43-3b5d1d85c383",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-004",
+        "matched_rule": "Required Disclosure: TAX_LEGAL_DISCLAIMER",
+        "explanation": "Required disclosure 'TAX_LEGAL_DISCLAIMER' was not detected in document (max match: 28.2%).",
+        "severity": "medium"
+      },
+      {
+        "id": "9312d98a-1487-4c4c-ae9b-ae957a4ff919",
+        "analysis_id": "8781b5e7-0193-42d5-ba43-3b5d1d85c383",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-005",
+        "matched_rule": "Required Disclosure: HYPOTHETICAL_PERFORMANCE",
+        "explanation": "Required disclosure 'HYPOTHETICAL_PERFORMANCE' was not detected in document (max match: 38.3%).",
+        "severity": "high"
+      },
+      {
+        "id": "65659565-4651-48ab-92ff-a0aebd593b70",
+        "analysis_id": "8781b5e7-0193-42d5-ba43-3b5d1d85c383",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-006",
+        "matched_rule": "Required Disclosure: GENERAL_RISK_OF_LOSS",
+        "explanation": "Required disclosure 'GENERAL_RISK_OF_LOSS' was not detected in document (max match: 26.1%).",
+        "severity": "high"
+      },
+      {
+        "id": "9438ca5a-be6e-4df7-9044-efecdb1fd100",
+        "analysis_id": "8781b5e7-0193-42d5-ba43-3b5d1d85c383",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-007",
+        "matched_rule": "Required Disclosure: FORM_ADV_BROCHURE",
+        "explanation": "Required disclosure 'FORM_ADV_BROCHURE' was not detected in document (max match: 23.7%).",
+        "severity": "medium"
+      },
+      {
+        "id": "5928bcdc-48fd-4a7b-a63c-88372b7cb7d6",
+        "analysis_id": "8781b5e7-0193-42d5-ba43-3b5d1d85c383",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-008",
+        "matched_rule": "Required Disclosure: THIRD_PARTY_RANKING",
+        "explanation": "Required disclosure 'THIRD_PARTY_RANKING' was not detected in document (max match: 21.2%).",
+        "severity": "medium"
+      },
+      {
+        "id": "712678b5-d360-482c-99e7-77fffab0e42d",
+        "analysis_id": "8781b5e7-0193-42d5-ba43-3b5d1d85c383",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-009",
+        "matched_rule": "Required Disclosure: TESTIMONIAL_DISCLAIMER",
+        "explanation": "Required disclosure 'TESTIMONIAL_DISCLAIMER' was not detected in document (max match: 38.0%).",
+        "severity": "medium"
+      },
+      {
+        "id": "1de54ef6-ec2a-4c55-9d32-0b086d0a5eb2",
+        "analysis_id": "8781b5e7-0193-42d5-ba43-3b5d1d85c383",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-010",
+        "matched_rule": "Required Disclosure: DIGITAL_ASSET_RISK",
+        "explanation": "Required disclosure 'DIGITAL_ASSET_RISK' was not detected in document (max match: 16.3%).",
+        "severity": "high"
+      },
+      {
+        "id": "b9841369-8f54-4e57-94d4-5cd3785068f5",
+        "analysis_id": "8781b5e7-0193-42d5-ba43-3b5d1d85c383",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-011",
+        "matched_rule": "Required Disclosure: PRIVATE_PLACEMENT_ACCREDITED",
+        "explanation": "Required disclosure 'PRIVATE_PLACEMENT_ACCREDITED' was not detected in document (max match: 19.1%).",
+        "severity": "medium"
+      },
+      {
+        "id": "66307d86-a6c2-4311-8bf1-d9ff654c17fe",
+        "analysis_id": "8781b5e7-0193-42d5-ba43-3b5d1d85c383",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-012",
+        "matched_rule": "Required Disclosure: OPTIONS_DISCLOSURE",
+        "explanation": "Required disclosure 'OPTIONS_DISCLOSURE' was not detected in document (max match: 36.7%).",
+        "severity": "medium"
+      },
+      {
+        "id": "6ba55764-3d3e-4bb5-bf1d-caf246d114a4",
+        "analysis_id": "8781b5e7-0193-42d5-ba43-3b5d1d85c383",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-013",
+        "matched_rule": "Required Disclosure: INSURANCE_GUARANTEE",
+        "explanation": "Required disclosure 'INSURANCE_GUARANTEE' was not detected in document (max match: 25.8%).",
+        "severity": "medium"
+      },
+      {
+        "id": "fdb91de3-0b6e-49d0-a418-bf54912bafdc",
+        "analysis_id": "8781b5e7-0193-42d5-ba43-3b5d1d85c383",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-014",
+        "matched_rule": "Required Disclosure: MUNICIPAL_TAX_DISCLAIMER",
+        "explanation": "Required disclosure 'MUNICIPAL_TAX_DISCLAIMER' was not detected in document (max match: 5.5%).",
+        "severity": "medium"
+      },
+      {
+        "id": "7b4b8cc5-afc6-4e81-a07b-ee7745a83527",
+        "analysis_id": "8781b5e7-0193-42d5-ba43-3b5d1d85c383",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-015",
+        "matched_rule": "Required Disclosure: INTERNATIONAL_INVESTING",
+        "explanation": "Required disclosure 'INTERNATIONAL_INVESTING' was not detected in document (max match: 14.5%).",
+        "severity": "medium"
+      },
+      {
+        "id": "d8cb3c44-ac87-4f15-8f07-2fb9a173e9ef",
+        "analysis_id": "8781b5e7-0193-42d5-ba43-3b5d1d85c383",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-016",
+        "matched_rule": "Required Disclosure: BENCHMARK_UNMANAGED_INDEX",
+        "explanation": "Required disclosure 'BENCHMARK_UNMANAGED_INDEX' was not detected in document (max match: 45.8%).",
+        "severity": "medium"
+      },
+      {
+        "id": "c14da1f5-0717-434d-806d-635f1925b597",
+        "analysis_id": "8781b5e7-0193-42d5-ba43-3b5d1d85c383",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-017",
+        "matched_rule": "Required Disclosure: FIXED_INCOME_RISK",
+        "explanation": "Required disclosure 'FIXED_INCOME_RISK' was not detected in document (max match: 29.9%).",
+        "severity": "high"
+      },
+      {
+        "id": "fc75223b-c206-45f4-bc7e-e33bc78dd271",
+        "analysis_id": "8781b5e7-0193-42d5-ba43-3b5d1d85c383",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-018",
+        "matched_rule": "Required Disclosure: MARGIN_RISK",
+        "explanation": "Required disclosure 'MARGIN_RISK' was not detected in document (max match: 38.0%).",
+        "severity": "high"
+      },
+      {
+        "id": "cba67fa0-5ebc-47c2-befc-704007b999b5",
+        "analysis_id": "8781b5e7-0193-42d5-ba43-3b5d1d85c383",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-019",
+        "matched_rule": "Required Disclosure: REAL_ESTATE_RISK",
+        "explanation": "Required disclosure 'REAL_ESTATE_RISK' was not detected in document (max match: 24.0%).",
+        "severity": "high"
+      },
+      {
+        "id": "d2b2ad9b-6668-4237-8eb4-7c9db3fafba5",
+        "analysis_id": "8781b5e7-0193-42d5-ba43-3b5d1d85c383",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-020",
+        "matched_rule": "Required Disclosure: FEE_IMPACT_DISCLOSURE",
+        "explanation": "Required disclosure 'FEE_IMPACT_DISCLOSURE' was not detected in document (max match: 36.9%).",
+        "severity": "medium"
+      },
+      {
+        "id": "14cb48c1-74f7-43c0-80a1-aad8b4f819b3",
+        "analysis_id": "8781b5e7-0193-42d5-ba43-3b5d1d85c383",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-021",
+        "matched_rule": "Required Disclosure: ESG_DISCLOSURE",
+        "explanation": "Required disclosure 'ESG_DISCLOSURE' was not detected in document (max match: 19.4%).",
+        "severity": "medium"
+      },
+      {
+        "id": "f9c53521-b77c-4170-b44d-8b56fd113a8e",
+        "analysis_id": "8781b5e7-0193-42d5-ba43-3b5d1d85c383",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-022",
+        "matched_rule": "Required Disclosure: STRUCTURED_NOTES",
+        "explanation": "Required disclosure 'STRUCTURED_NOTES' was not detected in document (max match: 34.0%).",
+        "severity": "medium"
+      },
+      {
+        "id": "c63b36ee-1e11-40b4-aca9-2b2aa424b968",
+        "analysis_id": "8781b5e7-0193-42d5-ba43-3b5d1d85c383",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-023",
+        "matched_rule": "Required Disclosure: PRIVACY_POLICY_REG_SP",
+        "explanation": "Required disclosure 'PRIVACY_POLICY_REG_SP' was not detected in document (max match: 6.7%).",
+        "severity": "medium"
+      },
+      {
+        "id": "fcc8459a-d124-489a-a73c-8bcb308c4115",
+        "analysis_id": "8781b5e7-0193-42d5-ba43-3b5d1d85c383",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-024",
+        "matched_rule": "Required Disclosure: GROSS_OF_FEES_WARNING",
+        "explanation": "Required disclosure 'GROSS_OF_FEES_WARNING' was not detected in document (max match: 38.5%).",
+        "severity": "medium"
+      },
+      {
+        "id": "10845ad1-7ef1-4b17-af5f-466ac7fa77e8",
+        "analysis_id": "8781b5e7-0193-42d5-ba43-3b5d1d85c383",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-025",
+        "matched_rule": "Required Disclosure: GENERAL_INFORMATIONAL_ONLY",
+        "explanation": "Required disclosure 'GENERAL_INFORMATIONAL_ONLY' was not detected in document (max match: 1.1%).",
+        "severity": "medium"
+      }
+    ],
+    "precedents": [
+      {
+        "document_id": "PREC-DOC-0193",
+        "similarity": 0.4455,
+        "previous_decision": "needs_revision",
+        "officer_comment": "Needs Revision. Please add the standard 'Past performance is no guarantee of future results' disclaimer (RULE-010) and include the net-of-fees return schedule (RULE-011) before distribution.",
+        "excerpt": "Document Title: Treasury Inflation-Protected Securities Review for [CLIENT_3] (Ref: [ACCOUNT_5]).\nPrepared by Senior Advisor for compliance review.\nQuarterly performance report for account [ACCOUNT_1]..."
+      },
+      {
+        "document_id": "PREC-DOC-0133",
+        "similarity": 0.4434,
+        "previous_decision": "needs_revision",
+        "officer_comment": "Needs Revision. Please add the standard 'Past performance is no guarantee of future results' disclaimer (RULE-010) and include the net-of-fees return schedule (RULE-011) before distribution.",
+        "excerpt": "Document Title: Treasury Inflation-Protected Securities Review for [CLIENT_3] (Ref: [ACCOUNT_1]).\nPrepared by Senior Advisor for compliance review.\nQuarterly performance report for account [ACCOUNT_1]..."
+      },
+      {
+        "document_id": "PREC-DOC-0145",
+        "similarity": 0.4409,
+        "previous_decision": "needs_revision",
+        "officer_comment": "Needs Revision. Please add the standard 'Past performance is no guarantee of future results' disclaimer (RULE-010) and include the net-of-fees return schedule (RULE-011) before distribution.",
+        "excerpt": "Document Title: Tax-Loss Harvesting Guide Review for [CLIENT_5] (Ref: [ACCOUNT_5]).\nPrepared by Senior Advisor for compliance review.\nQuarterly performance report for account [ACCOUNT_1]. Shows 3-year..."
+      }
+    ],
+    "disclosures_checked": [
+      {
+        "disclosure_id": "DISC-001",
+        "disclosure_type": "SEC_RIA_DISCLOSURE",
+        "disclosure_text": "Advisory services offered through Beacon Wealth Management LLC, an SEC Registered Investment Advisor.",
+        "is_present": false,
+        "similarity_score": 0.1756,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-002",
+        "disclosure_type": "PAST_PERFORMANCE",
+        "disclosure_text": "Past performance is no guarantee of future results. Investments are subject to market risk, including possible loss of the principal amount invested.",
+        "is_present": false,
+        "similarity_score": 0.623,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-003",
+        "disclosure_type": "FINRA_SIPC_MEMBERSHIP",
+        "disclosure_text": "Securities offered through Horizon Financial Services, Member FINRA/SIPC. Investment advisory products are not FDIC insured.",
+        "is_present": false,
+        "similarity_score": 0.2007,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-004",
+        "disclosure_type": "TAX_LEGAL_DISCLAIMER",
+        "disclosure_text": "Beacon Wealth Management LLC does not provide tax, legal, or accounting advice. Please consult your individual tax professional regarding your personal situation.",
+        "is_present": false,
+        "similarity_score": 0.2818,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-005",
+        "disclosure_type": "HYPOTHETICAL_PERFORMANCE",
+        "disclosure_text": "Hypothetical performance results have many inherent limitations and do not represent actual trading. No representation is being made that any account will achieve profits or losses similar to those shown.",
+        "is_present": false,
+        "similarity_score": 0.3826,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-006",
+        "disclosure_type": "GENERAL_RISK_OF_LOSS",
+        "disclosure_text": "All investing involves risk, including the potential loss of principal. There can be no assurance that any investment strategy will be successful or profitable.",
+        "is_present": false,
+        "similarity_score": 0.2612,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-007",
+        "disclosure_type": "FORM_ADV_BROCHURE",
+        "disclosure_text": "For complete information regarding advisory fees, billing practices, and conflicts of interest, please review our Form ADV Part 2A Brochure available at advisorinfo.sec.gov.",
+        "is_present": false,
+        "similarity_score": 0.2373,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-008",
+        "disclosure_type": "THIRD_PARTY_RANKING",
+        "disclosure_text": "Rankings, awards, and recognitions by unaffiliated publications are based on quantitative and qualitative criteria and should not be construed as an endorsement of the advisor.",
+        "is_present": false,
+        "similarity_score": 0.2119,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-009",
+        "disclosure_type": "TESTIMONIAL_DISCLAIMER",
+        "disclosure_text": "Testimonials and endorsements may not be representative of the experience of other clients and do not guarantee future investment performance or satisfaction.",
+        "is_present": false,
+        "similarity_score": 0.3804,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-010",
+        "disclosure_type": "DIGITAL_ASSET_RISK",
+        "disclosure_text": "Digital assets and cryptocurrencies are highly volatile, speculative, and not protected by SIPC or FDIC insurance.",
+        "is_present": false,
+        "similarity_score": 0.1629,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-011",
+        "disclosure_type": "PRIVATE_PLACEMENT_ACCREDITED",
+        "disclosure_text": "Alternative investments and private placements are illiquid, speculative, and suitable only for accredited or qualified institutional investors.",
+        "is_present": false,
+        "similarity_score": 0.1914,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-012",
+        "disclosure_type": "OPTIONS_DISCLOSURE",
+        "disclosure_text": "Options trading involves substantial risk and is not suitable for all investors. Prior to buying or selling options, read the Characteristics and Risks of Standardized Options.",
+        "is_present": false,
+        "similarity_score": 0.3671,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-013",
+        "disclosure_type": "INSURANCE_GUARANTEE",
+        "disclosure_text": "Insurance and annuity product guarantees are backed solely by the financial strength and claims-paying ability of the issuing insurance company.",
+        "is_present": false,
+        "similarity_score": 0.2581,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-014",
+        "disclosure_type": "MUNICIPAL_TAX_DISCLAIMER",
+        "disclosure_text": "Municipal bond interest may be subject to the alternative minimum tax (AMT) and state or local taxes depending on the investor's residency.",
+        "is_present": false,
+        "similarity_score": 0.0554,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-015",
+        "disclosure_type": "INTERNATIONAL_INVESTING",
+        "disclosure_text": "International and emerging market investments involve currency exchange fluctuations, political instability, and differing accounting standards.",
+        "is_present": false,
+        "similarity_score": 0.1453,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-016",
+        "disclosure_type": "BENCHMARK_UNMANAGED_INDEX",
+        "disclosure_text": "Indices are unmanaged and cannot be invested in directly. Index performance does not reflect the deduction of management fees, transaction costs, or expenses.",
+        "is_present": false,
+        "similarity_score": 0.4581,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-017",
+        "disclosure_type": "FIXED_INCOME_RISK",
+        "disclosure_text": "Fixed income securities are subject to interest rate risk, credit risk, inflation risk, and reinvestment risk.",
+        "is_present": false,
+        "similarity_score": 0.2986,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-018",
+        "disclosure_type": "MARGIN_RISK",
+        "disclosure_text": "Margin trading carries a high level of risk and may result in losses exceeding the initial deposit. Please review our Margin Disclosure Statement.",
+        "is_present": false,
+        "similarity_score": 0.3803,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-019",
+        "disclosure_type": "REAL_ESTATE_RISK",
+        "disclosure_text": "Real estate investments are subject to fluctuations in property values, tenancy risks, leverage, and economic downturns.",
+        "is_present": false,
+        "similarity_score": 0.2398,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-020",
+        "disclosure_type": "FEE_IMPACT_DISCLOSURE",
+        "disclosure_text": "Fee deductions reduce overall portfolio returns. Net returns shown reflect the maximum annual management fee of 1.00% unless specified otherwise.",
+        "is_present": false,
+        "similarity_score": 0.3692,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-021",
+        "disclosure_type": "ESG_DISCLOSURE",
+        "disclosure_text": "ESG and sustainable investing strategies may limit the universe of available investments and may not align with traditional benchmark allocations.",
+        "is_present": false,
+        "similarity_score": 0.1937,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-022",
+        "disclosure_type": "STRUCTURED_NOTES",
+        "disclosure_text": "Structured notes are complex debt securities subject to credit risk of the issuing financial institution and may experience principal loss.",
+        "is_present": false,
+        "similarity_score": 0.3399,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-023",
+        "disclosure_type": "PRIVACY_POLICY_REG_SP",
+        "disclosure_text": "Our firm's privacy policy explaining how we safeguard non-public personal information under Regulation S-P is available upon request.",
+        "is_present": false,
+        "similarity_score": 0.0669,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-024",
+        "disclosure_type": "GROSS_OF_FEES_WARNING",
+        "disclosure_text": "Performance calculations presented gross of fees do not reflect advisory fee deductions, which compound over time to reduce net returns.",
+        "is_present": false,
+        "similarity_score": 0.3851,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-025",
+        "disclosure_type": "GENERAL_INFORMATIONAL_ONLY",
+        "disclosure_text": "Material contained herein is for informational and educational purposes only and does not constitute an offer to buy or sell securities.",
+        "is_present": false,
+        "similarity_score": 0.0108,
+        "best_matching_passage": null
+      }
+    ]
+  },
+  "MANUAL-DEGRADE-001": {
+    "id": "1565abf4-2482-4495-b38f-05579130e7eb",
+    "document_id": "MANUAL-DEGRADE-001",
+    "summary": "This document is an investment proposal addressed to a client outlining a specific investment strategy. Its primary purpose is to pitch the strategy by claiming a guaranteed 20% annual return with zero risk of loss. Key areas requiring officer attention include explicit return guarantees, promises of zero downside risk, unsubstantiated forward-looking return targets, and the omission of required risk disclosures.",
+    "status": "completed",
+    "generated_at": "2026-08-30T17:16:25.457912+00:00",
+    "masked_text": "Client Name: [CLIENT_1]\nEmail: [EMAIL_1]\nAccount Number: [ACCOUNT_1]\n\nInvestment Proposal\nOur strategy guarantees a 20% annual return with zero risk of loss.",
+    "error_message": null,
+    "retryable": false,
+    "flags": [
+      {
+        "id": "83f0d6f8-3763-422f-998e-7dde2b1eca8b",
+        "analysis_id": "1565abf4-2482-4495-b38f-05579130e7eb",
+        "passage_excerpt": "Our strategy guarantees a 20% annual return with zero risk of loss.",
+        "matched_rule_id": "RULE-001",
+        "matched_rule": "Prohibition of Guaranteed Returns: Communications must never state or imply that any investment return or profit is guaranteed, assured, or risk-free.",
+        "explanation": "The passage explicitly promises a guaranteed return and a risk-free investment, violating the rule against stating or implying guaranteed returns.",
+        "severity": "high"
+      },
+      {
+        "id": "65d64ee7-24fe-4737-bafa-4e57fb7952af",
+        "analysis_id": "1565abf4-2482-4495-b38f-05579130e7eb",
+        "passage_excerpt": "zero risk of loss.",
+        "matched_rule_id": "RULE-004",
+        "matched_rule": "Elimination of Downside Risk: Marketing materials cannot promise complete downside protection or zero risk in equity or alternative investments.",
+        "explanation": "The claim of having zero risk promises complete downside protection, which is prohibited in investment communications.",
+        "severity": "high"
+      },
+      {
+        "id": "cd24f2f1-6354-45e4-af41-afc1c773f2f6",
+        "analysis_id": "1565abf4-2482-4495-b38f-05579130e7eb",
+        "passage_excerpt": "guarantees a 20% annual return",
+        "matched_rule_id": "RULE-015",
+        "matched_rule": "Unsubstantiated Return Targets: Stating specific forward-looking percentage return targets without detailed risk scenarios and probability models is prohibited.",
+        "explanation": "The text asserts a specific 20% forward-looking annual return target without supplying necessary risk scenarios and probability models.",
+        "severity": "high"
+      },
+      {
+        "id": "c78db174-7b9f-42f2-9150-ccef9be1bfa9",
+        "analysis_id": "1565abf4-2482-4495-b38f-05579130e7eb",
+        "passage_excerpt": "Investment Proposal\nOur strategy guarantees a 20% annual return with zero risk of loss.",
+        "matched_rule_id": "RULE-021",
+        "matched_rule": "Risk of Loss Disclosure: All investment presentations must contain the prominent disclosure: 'Investing in securities involves risk of loss that clients should be prepared to bear.'",
+        "explanation": "The proposal fails to include the mandatory prominent risk disclosure statement regarding the client's risk of loss.",
+        "severity": "high"
+      },
+      {
+        "id": "b3faa39d-c520-40fc-88be-0a1b236119e7",
+        "analysis_id": "1565abf4-2482-4495-b38f-05579130e7eb",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-001",
+        "matched_rule": "Required Disclosure: SEC_RIA_DISCLOSURE",
+        "explanation": "Required disclosure 'SEC_RIA_DISCLOSURE' was not detected in document (max match: 18.5%).",
+        "severity": "medium"
+      },
+      {
+        "id": "26f9235e-9b13-4482-be87-9d8a0b298bbc",
+        "analysis_id": "1565abf4-2482-4495-b38f-05579130e7eb",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-002",
+        "matched_rule": "Required Disclosure: PAST_PERFORMANCE",
+        "explanation": "Required disclosure 'PAST_PERFORMANCE' was not detected in document (max match: 50.7%).",
+        "severity": "high"
+      },
+      {
+        "id": "db0c2dee-c090-435d-a7cd-b8782b8633d0",
+        "analysis_id": "1565abf4-2482-4495-b38f-05579130e7eb",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-003",
+        "matched_rule": "Required Disclosure: FINRA_SIPC_MEMBERSHIP",
+        "explanation": "Required disclosure 'FINRA_SIPC_MEMBERSHIP' was not detected in document (max match: 9.9%).",
+        "severity": "medium"
+      },
+      {
+        "id": "b5610765-7f12-460d-965e-6d2287c96163",
+        "analysis_id": "1565abf4-2482-4495-b38f-05579130e7eb",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-004",
+        "matched_rule": "Required Disclosure: TAX_LEGAL_DISCLAIMER",
+        "explanation": "Required disclosure 'TAX_LEGAL_DISCLAIMER' was not detected in document (max match: 17.4%).",
+        "severity": "medium"
+      },
+      {
+        "id": "e00d6da4-e97c-4211-9667-223b1385ccba",
+        "analysis_id": "1565abf4-2482-4495-b38f-05579130e7eb",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-005",
+        "matched_rule": "Required Disclosure: HYPOTHETICAL_PERFORMANCE",
+        "explanation": "Required disclosure 'HYPOTHETICAL_PERFORMANCE' was not detected in document (max match: 36.3%).",
+        "severity": "high"
+      },
+      {
+        "id": "c180c3d3-0b5c-4394-89d9-6db5eca736b8",
+        "analysis_id": "1565abf4-2482-4495-b38f-05579130e7eb",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-006",
+        "matched_rule": "Required Disclosure: GENERAL_RISK_OF_LOSS",
+        "explanation": "Required disclosure 'GENERAL_RISK_OF_LOSS' was not detected in document (max match: 27.5%).",
+        "severity": "high"
+      },
+      {
+        "id": "cfd43d78-acd6-419a-a297-8292fbd75f6c",
+        "analysis_id": "1565abf4-2482-4495-b38f-05579130e7eb",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-007",
+        "matched_rule": "Required Disclosure: FORM_ADV_BROCHURE",
+        "explanation": "Required disclosure 'FORM_ADV_BROCHURE' was not detected in document (max match: 17.1%).",
+        "severity": "medium"
+      },
+      {
+        "id": "c51e5a21-6124-4583-aa3f-9b9b122d7f64",
+        "analysis_id": "1565abf4-2482-4495-b38f-05579130e7eb",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-008",
+        "matched_rule": "Required Disclosure: THIRD_PARTY_RANKING",
+        "explanation": "Required disclosure 'THIRD_PARTY_RANKING' was not detected in document (max match: 15.1%).",
+        "severity": "medium"
+      },
+      {
+        "id": "0bc99f28-2499-4b14-81b8-0ef032f3436a",
+        "analysis_id": "1565abf4-2482-4495-b38f-05579130e7eb",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-009",
+        "matched_rule": "Required Disclosure: TESTIMONIAL_DISCLAIMER",
+        "explanation": "Required disclosure 'TESTIMONIAL_DISCLAIMER' was not detected in document (max match: 31.7%).",
+        "severity": "medium"
+      },
+      {
+        "id": "c42f8a55-5382-49e8-97c5-6765fabf6af6",
+        "analysis_id": "1565abf4-2482-4495-b38f-05579130e7eb",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-010",
+        "matched_rule": "Required Disclosure: DIGITAL_ASSET_RISK",
+        "explanation": "Required disclosure 'DIGITAL_ASSET_RISK' was not detected in document (max match: 16.7%).",
+        "severity": "high"
+      },
+      {
+        "id": "c518f9bb-3a21-4c61-ad1e-823d4cfa7ee1",
+        "analysis_id": "1565abf4-2482-4495-b38f-05579130e7eb",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-011",
+        "matched_rule": "Required Disclosure: PRIVATE_PLACEMENT_ACCREDITED",
+        "explanation": "Required disclosure 'PRIVATE_PLACEMENT_ACCREDITED' was not detected in document (max match: 14.2%).",
+        "severity": "medium"
+      },
+      {
+        "id": "565d5a5c-6c76-4c74-a8ce-a3e329d00027",
+        "analysis_id": "1565abf4-2482-4495-b38f-05579130e7eb",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-012",
+        "matched_rule": "Required Disclosure: OPTIONS_DISCLOSURE",
+        "explanation": "Required disclosure 'OPTIONS_DISCLOSURE' was not detected in document (max match: 29.4%).",
+        "severity": "medium"
+      },
+      {
+        "id": "db50324f-3c75-46c3-b5a3-99be0fd7bafd",
+        "analysis_id": "1565abf4-2482-4495-b38f-05579130e7eb",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-013",
+        "matched_rule": "Required Disclosure: INSURANCE_GUARANTEE",
+        "explanation": "Required disclosure 'INSURANCE_GUARANTEE' was not detected in document (max match: 30.7%).",
+        "severity": "medium"
+      },
+      {
+        "id": "3380d584-7b30-46b7-9288-290384ef8397",
+        "analysis_id": "1565abf4-2482-4495-b38f-05579130e7eb",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-014",
+        "matched_rule": "Required Disclosure: MUNICIPAL_TAX_DISCLAIMER",
+        "explanation": "Required disclosure 'MUNICIPAL_TAX_DISCLAIMER' was not detected in document (max match: 5.3%).",
+        "severity": "medium"
+      },
+      {
+        "id": "3a75de72-3033-4e77-8c49-e4cc025ac4b2",
+        "analysis_id": "1565abf4-2482-4495-b38f-05579130e7eb",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-015",
+        "matched_rule": "Required Disclosure: INTERNATIONAL_INVESTING",
+        "explanation": "Required disclosure 'INTERNATIONAL_INVESTING' was not detected in document (max match: 11.6%).",
+        "severity": "medium"
+      },
+      {
+        "id": "3ecdd514-6242-4292-a578-d2e05525299e",
+        "analysis_id": "1565abf4-2482-4495-b38f-05579130e7eb",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-016",
+        "matched_rule": "Required Disclosure: BENCHMARK_UNMANAGED_INDEX",
+        "explanation": "Required disclosure 'BENCHMARK_UNMANAGED_INDEX' was not detected in document (max match: 47.5%).",
+        "severity": "medium"
+      },
+      {
+        "id": "974ef94a-03a3-4662-b0c0-bc747843d46d",
+        "analysis_id": "1565abf4-2482-4495-b38f-05579130e7eb",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-017",
+        "matched_rule": "Required Disclosure: FIXED_INCOME_RISK",
+        "explanation": "Required disclosure 'FIXED_INCOME_RISK' was not detected in document (max match: 27.6%).",
+        "severity": "high"
+      },
+      {
+        "id": "c4de48a5-37d8-4405-9e36-ca1eb4cfc25f",
+        "analysis_id": "1565abf4-2482-4495-b38f-05579130e7eb",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-018",
+        "matched_rule": "Required Disclosure: MARGIN_RISK",
+        "explanation": "Required disclosure 'MARGIN_RISK' was not detected in document (max match: 38.5%).",
+        "severity": "high"
+      },
+      {
+        "id": "8281488a-6f0e-4abb-9805-e30008e85854",
+        "analysis_id": "1565abf4-2482-4495-b38f-05579130e7eb",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-019",
+        "matched_rule": "Required Disclosure: REAL_ESTATE_RISK",
+        "explanation": "Required disclosure 'REAL_ESTATE_RISK' was not detected in document (max match: 25.9%).",
+        "severity": "high"
+      },
+      {
+        "id": "94277e10-5cd2-4b24-826d-33d95c8f99ef",
+        "analysis_id": "1565abf4-2482-4495-b38f-05579130e7eb",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-020",
+        "matched_rule": "Required Disclosure: FEE_IMPACT_DISCLOSURE",
+        "explanation": "Required disclosure 'FEE_IMPACT_DISCLOSURE' was not detected in document (max match: 28.6%).",
+        "severity": "medium"
+      },
+      {
+        "id": "90fbca2d-6296-4ff9-a89c-8a4e153c9e90",
+        "analysis_id": "1565abf4-2482-4495-b38f-05579130e7eb",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-021",
+        "matched_rule": "Required Disclosure: ESG_DISCLOSURE",
+        "explanation": "Required disclosure 'ESG_DISCLOSURE' was not detected in document (max match: 21.3%).",
+        "severity": "medium"
+      },
+      {
+        "id": "114fe6c5-f949-43bb-8aac-c7d884b8d6bf",
+        "analysis_id": "1565abf4-2482-4495-b38f-05579130e7eb",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-022",
+        "matched_rule": "Required Disclosure: STRUCTURED_NOTES",
+        "explanation": "Required disclosure 'STRUCTURED_NOTES' was not detected in document (max match: 38.2%).",
+        "severity": "medium"
+      },
+      {
+        "id": "dede3146-9cbf-44e8-b476-96674f24854e",
+        "analysis_id": "1565abf4-2482-4495-b38f-05579130e7eb",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-023",
+        "matched_rule": "Required Disclosure: PRIVACY_POLICY_REG_SP",
+        "explanation": "Required disclosure 'PRIVACY_POLICY_REG_SP' was not detected in document (max match: 1.2%).",
+        "severity": "medium"
+      },
+      {
+        "id": "01e37e43-1829-4845-b4e6-7abee9e32c49",
+        "analysis_id": "1565abf4-2482-4495-b38f-05579130e7eb",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-024",
+        "matched_rule": "Required Disclosure: GROSS_OF_FEES_WARNING",
+        "explanation": "Required disclosure 'GROSS_OF_FEES_WARNING' was not detected in document (max match: 27.5%).",
+        "severity": "medium"
+      },
+      {
+        "id": "aac79e30-9c37-433c-9c13-67a0572e2391",
+        "analysis_id": "1565abf4-2482-4495-b38f-05579130e7eb",
+        "passage_excerpt": "[ENTIRE_DOCUMENT: DISCLOSURE_ABSENT]",
+        "matched_rule_id": "DISC-DISC-025",
+        "matched_rule": "Required Disclosure: GENERAL_INFORMATIONAL_ONLY",
+        "explanation": "Required disclosure 'GENERAL_INFORMATIONAL_ONLY' was not detected in document (max match: 3.4%).",
+        "severity": "medium"
+      }
+    ],
+    "precedents": [
+      {
+        "document_id": "PREC-DOC-0179",
+        "similarity": 0.3962,
+        "previous_decision": "rejected",
+        "officer_comment": "REJECTED. Violation of RULE-001, RULE-003, and RULE-005. Promising zero downside risk and unapproved private guarantees is strictly illegal under compliance standards.",
+        "excerpt": "Document Title: 529 College Savings Guide Review for [CLIENT_4] (Ref: [ACCOUNT_7]).\nPrepared by Senior Advisor for compliance review.\nClient flyer for [CLIENT_1] stating: 'Guaranteed principal growth ..."
+      },
+      {
+        "document_id": "PREC-DOC-0119",
+        "similarity": 0.3928,
+        "previous_decision": "rejected",
+        "officer_comment": "REJECTED. Violation of RULE-001, RULE-003, and RULE-005. Promising zero downside risk and unapproved private guarantees is strictly illegal under compliance standards.",
+        "excerpt": "Document Title: 529 College Savings Guide Review for [CLIENT_4] (Ref: [ACCOUNT_3]).\nPrepared by Senior Advisor for compliance review.\nClient flyer for [CLIENT_1] stating: 'Guaranteed principal growth ..."
+      },
+      {
+        "document_id": "PREC-DOC-0159",
+        "similarity": 0.3848,
+        "previous_decision": "needs_revision",
+        "officer_comment": "Needs Revision. Must clarify the distinction between bank deposits and corporate fixed income, and add the fixed income credit risk disclosure (RULE-003, DISC-017).",
+        "excerpt": "Document Title: 529 College Savings Guide Review for [CLIENT_4] (Ref: [ACCOUNT_3]).\nPrepared by Senior Advisor for compliance review.\nEmail draft to [CLIENT_1] discussing high-yield corporate debt str..."
+      }
+    ],
+    "disclosures_checked": [
+      {
+        "disclosure_id": "DISC-001",
+        "disclosure_type": "SEC_RIA_DISCLOSURE",
+        "disclosure_text": "Advisory services offered through Beacon Wealth Management LLC, an SEC Registered Investment Advisor.",
+        "is_present": false,
+        "similarity_score": 0.1853,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-002",
+        "disclosure_type": "PAST_PERFORMANCE",
+        "disclosure_text": "Past performance is no guarantee of future results. Investments are subject to market risk, including possible loss of the principal amount invested.",
+        "is_present": false,
+        "similarity_score": 0.5067,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-003",
+        "disclosure_type": "FINRA_SIPC_MEMBERSHIP",
+        "disclosure_text": "Securities offered through Horizon Financial Services, Member FINRA/SIPC. Investment advisory products are not FDIC insured.",
+        "is_present": false,
+        "similarity_score": 0.0987,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-004",
+        "disclosure_type": "TAX_LEGAL_DISCLAIMER",
+        "disclosure_text": "Beacon Wealth Management LLC does not provide tax, legal, or accounting advice. Please consult your individual tax professional regarding your personal situation.",
+        "is_present": false,
+        "similarity_score": 0.1738,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-005",
+        "disclosure_type": "HYPOTHETICAL_PERFORMANCE",
+        "disclosure_text": "Hypothetical performance results have many inherent limitations and do not represent actual trading. No representation is being made that any account will achieve profits or losses similar to those shown.",
+        "is_present": false,
+        "similarity_score": 0.3628,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-006",
+        "disclosure_type": "GENERAL_RISK_OF_LOSS",
+        "disclosure_text": "All investing involves risk, including the potential loss of principal. There can be no assurance that any investment strategy will be successful or profitable.",
+        "is_present": false,
+        "similarity_score": 0.2747,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-007",
+        "disclosure_type": "FORM_ADV_BROCHURE",
+        "disclosure_text": "For complete information regarding advisory fees, billing practices, and conflicts of interest, please review our Form ADV Part 2A Brochure available at advisorinfo.sec.gov.",
+        "is_present": false,
+        "similarity_score": 0.1706,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-008",
+        "disclosure_type": "THIRD_PARTY_RANKING",
+        "disclosure_text": "Rankings, awards, and recognitions by unaffiliated publications are based on quantitative and qualitative criteria and should not be construed as an endorsement of the advisor.",
+        "is_present": false,
+        "similarity_score": 0.1514,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-009",
+        "disclosure_type": "TESTIMONIAL_DISCLAIMER",
+        "disclosure_text": "Testimonials and endorsements may not be representative of the experience of other clients and do not guarantee future investment performance or satisfaction.",
+        "is_present": false,
+        "similarity_score": 0.3167,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-010",
+        "disclosure_type": "DIGITAL_ASSET_RISK",
+        "disclosure_text": "Digital assets and cryptocurrencies are highly volatile, speculative, and not protected by SIPC or FDIC insurance.",
+        "is_present": false,
+        "similarity_score": 0.1667,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-011",
+        "disclosure_type": "PRIVATE_PLACEMENT_ACCREDITED",
+        "disclosure_text": "Alternative investments and private placements are illiquid, speculative, and suitable only for accredited or qualified institutional investors.",
+        "is_present": false,
+        "similarity_score": 0.1423,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-012",
+        "disclosure_type": "OPTIONS_DISCLOSURE",
+        "disclosure_text": "Options trading involves substantial risk and is not suitable for all investors. Prior to buying or selling options, read the Characteristics and Risks of Standardized Options.",
+        "is_present": false,
+        "similarity_score": 0.2937,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-013",
+        "disclosure_type": "INSURANCE_GUARANTEE",
+        "disclosure_text": "Insurance and annuity product guarantees are backed solely by the financial strength and claims-paying ability of the issuing insurance company.",
+        "is_present": false,
+        "similarity_score": 0.3072,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-014",
+        "disclosure_type": "MUNICIPAL_TAX_DISCLAIMER",
+        "disclosure_text": "Municipal bond interest may be subject to the alternative minimum tax (AMT) and state or local taxes depending on the investor's residency.",
+        "is_present": false,
+        "similarity_score": 0.0527,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-015",
+        "disclosure_type": "INTERNATIONAL_INVESTING",
+        "disclosure_text": "International and emerging market investments involve currency exchange fluctuations, political instability, and differing accounting standards.",
+        "is_present": false,
+        "similarity_score": 0.116,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-016",
+        "disclosure_type": "BENCHMARK_UNMANAGED_INDEX",
+        "disclosure_text": "Indices are unmanaged and cannot be invested in directly. Index performance does not reflect the deduction of management fees, transaction costs, or expenses.",
+        "is_present": false,
+        "similarity_score": 0.4754,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-017",
+        "disclosure_type": "FIXED_INCOME_RISK",
+        "disclosure_text": "Fixed income securities are subject to interest rate risk, credit risk, inflation risk, and reinvestment risk.",
+        "is_present": false,
+        "similarity_score": 0.276,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-018",
+        "disclosure_type": "MARGIN_RISK",
+        "disclosure_text": "Margin trading carries a high level of risk and may result in losses exceeding the initial deposit. Please review our Margin Disclosure Statement.",
+        "is_present": false,
+        "similarity_score": 0.3849,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-019",
+        "disclosure_type": "REAL_ESTATE_RISK",
+        "disclosure_text": "Real estate investments are subject to fluctuations in property values, tenancy risks, leverage, and economic downturns.",
+        "is_present": false,
+        "similarity_score": 0.2587,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-020",
+        "disclosure_type": "FEE_IMPACT_DISCLOSURE",
+        "disclosure_text": "Fee deductions reduce overall portfolio returns. Net returns shown reflect the maximum annual management fee of 1.00% unless specified otherwise.",
+        "is_present": false,
+        "similarity_score": 0.286,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-021",
+        "disclosure_type": "ESG_DISCLOSURE",
+        "disclosure_text": "ESG and sustainable investing strategies may limit the universe of available investments and may not align with traditional benchmark allocations.",
+        "is_present": false,
+        "similarity_score": 0.2135,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-022",
+        "disclosure_type": "STRUCTURED_NOTES",
+        "disclosure_text": "Structured notes are complex debt securities subject to credit risk of the issuing financial institution and may experience principal loss.",
+        "is_present": false,
+        "similarity_score": 0.3821,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-023",
+        "disclosure_type": "PRIVACY_POLICY_REG_SP",
+        "disclosure_text": "Our firm's privacy policy explaining how we safeguard non-public personal information under Regulation S-P is available upon request.",
+        "is_present": false,
+        "similarity_score": 0.0116,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-024",
+        "disclosure_type": "GROSS_OF_FEES_WARNING",
+        "disclosure_text": "Performance calculations presented gross of fees do not reflect advisory fee deductions, which compound over time to reduce net returns.",
+        "is_present": false,
+        "similarity_score": 0.2748,
+        "best_matching_passage": null
+      },
+      {
+        "disclosure_id": "DISC-025",
+        "disclosure_type": "GENERAL_INFORMATIONAL_ONLY",
+        "disclosure_text": "Material contained herein is for informational and educational purposes only and does not constitute an offer to buy or sell securities.",
+        "is_present": false,
+        "similarity_score": 0.0343,
+        "best_matching_passage": null
+      }
+    ]
+  }
+}
