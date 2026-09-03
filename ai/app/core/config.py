@@ -24,6 +24,10 @@ class Settings:
     GEMINI_TIMEOUT_SECONDS: float = float(os.getenv("GEMINI_TIMEOUT_SECONDS", "30.0"))
     GEMINI_MAX_RETRIES: int = int(os.getenv("GEMINI_MAX_RETRIES", "2"))
 
+    # Embedding settings
+    EMBEDDING_MODEL: str = os.getenv("EMBEDDING_MODEL", "all-MiniLM-L6-v2")
+    EMBEDDING_DIMENSION: int = int(os.getenv("EMBEDDING_DIMENSION", "384"))
+
     # Vector Retrieval settings
     DISCLOSURE_SIMILARITY_THRESHOLD: float = float(os.getenv("DISCLOSURE_SIMILARITY_THRESHOLD", "0.75"))
     PRECEDENT_TOP_K: int = int(os.getenv("PRECEDENT_TOP_K", "3"))

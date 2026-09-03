@@ -6,3 +6,5 @@ numpy>=1.26.0
 python-dotenv>=1.0.0
 pytest>=8.0.0
 pytest-cov>=4.1.0
+sentence-transformers>=2.2.0
+torch>=2.0.0
