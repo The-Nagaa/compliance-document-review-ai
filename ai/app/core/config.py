@@ -33,6 +33,11 @@ class Settings:
     PRECEDENT_TOP_K: int = int(os.getenv("PRECEDENT_TOP_K", "3"))
     RULE_TOP_K: int = int(os.getenv("RULE_TOP_K", "5"))
 
+    # Data Engineering Service Integration settings
+    DATA_ENGINEERING_BASE_URL: str = os.getenv("DATA_ENGINEERING_BASE_URL", "http://localhost:5000")
+    DATA_ENGINEERING_TIMEOUT_SECONDS: float = float(os.getenv("DATA_ENGINEERING_TIMEOUT_SECONDS", "10.0"))
+    USE_DATA_ENGINEERING_SERVICE: bool = os.getenv("USE_DATA_ENGINEERING_SERVICE", "false").lower() in ("true", "1", "yes")
+
     # Storage paths
     VECTOR_STORE_PATH: Path = Path(os.getenv("VECTOR_STORE_PATH", str(DATA_DIR / "vector_store.json")))
     ANALYSIS_CACHE_PATH: Path = Path(os.getenv("ANALYSIS_CACHE_PATH", str(DATA_DIR / "analysis_cache.json")))

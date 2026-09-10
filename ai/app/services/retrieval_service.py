@@ -5,6 +5,10 @@ Executes 3 specialized retrieval jobs:
 1. Rule Retrieval (semantic search for applicable compliance rules)
 2. Missing Disclosure Detection (detection by absence using similarity thresholds)
 3. Precedent Search (finds top 3 historically reviewed documents)
+
+Production Flow:
+Consumes Data Engineering's HTTP API as the production source of truth.
+Seamlessly falls back to local vector store for local testing/development or transient outages.
 """
 
 import re
@@ -21,6 +25,11 @@ from ai.app.models.entities import (
     SeverityLevel,
 )
 from ai.app.repositories.vector_store import vector_store
+from ai.app.services.data_engineering_client import (
+    DataEngineeringClient,
+    DataEngineeringError,
+    data_engineering_client,
+)
 from ai.app.services.embedding_service import embedding_service
 
 
@@ -29,8 +38,19 @@ class RetrievalService:
     Orchestrates vector-grounded retrieval across Rules, Disclosures, and Precedents.
     """
 
-    def __init__(self, store=vector_store):
+    def __init__(
+        self,
+        store=vector_store,
+        de_client: Optional[DataEngineeringClient] = None,
+        use_de_service: Optional[bool] = None,
+    ):
         self.store = store
+        self.de_client = de_client or data_engineering_client
+        self.use_de_service = (
+            use_de_service
+            if use_de_service is not None
+            else settings.USE_DATA_ENGINEERING_SERVICE
+        )
 
     @staticmethod
     def chunk_text(text: str, chunk_size: int = 400, overlap: int = 50) -> List[str]:
@@ -65,7 +85,23 @@ class RetrievalService:
     ) -> List[Tuple[Rule, float]]:
         """
         Retrieves compliance rules relevant to the sections of the masked document.
+        Uses Data Engineering /rule-lookup in production, falling back to local vector store.
         """
+        if self.use_de_service:
+            try:
+                logger.info("Retrieving rules via Data Engineering /rule-lookup...")
+                rules = self.de_client.lookup_rules(masked_text)
+                if rules:
+                    return rules[:max_total_rules]
+            except DataEngineeringError as e:
+                logger.warning(f"Data Engineering rule lookup failed ({e}). Falling back to local vector store.")
+
+        return self._local_retrieve_relevant_rules(masked_text, top_k_per_chunk, max_total_rules)
+
+    def _local_retrieve_relevant_rules(
+        self, masked_text: str, top_k_per_chunk: int = 3, max_total_rules: int = 8
+    ) -> List[Tuple[Rule, float]]:
+        """Local vector store rule search for offline/testing development."""
         chunks = self.chunk_text(masked_text)
         rule_scores: dict[str, Tuple[Rule, float]] = {}
 
@@ -84,7 +120,6 @@ class RetrievalService:
             if rule.id not in rule_scores or sim > rule_scores[rule.id][1]:
                 rule_scores[rule.id] = (rule, sim)
 
-        # Sort descending by similarity
         sorted_rules = sorted(rule_scores.values(), key=lambda x: x[1], reverse=True)
         return sorted_rules[:max_total_rules]
 
@@ -96,8 +131,34 @@ class RetrievalService:
     ) -> List[DisclosureCheckResult]:
         """
         Checks each standard required disclosure against the document passages.
-        If the maximum similarity is below threshold, it is flagged as missing.
+        Uses Data Engineering /disclosure-check in production, falling back to local vector store.
         """
+        if self.use_de_service:
+            try:
+                logger.info("Checking disclosures via Data Engineering /disclosure-check...")
+                chunks = self.chunk_text(masked_text)
+                disclosures = self.store.get_all_disclosures()
+                results: List[DisclosureCheckResult] = []
+                for disc in disclosures:
+                    res = self.de_client.check_disclosure(
+                        document_chunks=chunks,
+                        disclosure_id=disc.id,
+                        disclosure_text=disc.text,
+                        disclosure_type=disc.type,
+                    )
+                    results.append(res)
+                return results
+            except DataEngineeringError as e:
+                logger.warning(f"Data Engineering disclosure check failed ({e}). Falling back to local vector store.")
+
+        return self._local_check_disclosures(masked_text, threshold)
+
+    def _local_check_disclosures(
+        self,
+        masked_text: str,
+        threshold: Optional[float] = None,
+    ) -> List[DisclosureCheckResult]:
+        """Local vector store disclosure check for offline/testing development."""
         similarity_threshold = threshold if threshold is not None else settings.DISCLOSURE_SIMILARITY_THRESHOLD
         chunks = self.chunk_text(masked_text)
         disclosures = self.store.get_all_disclosures()
@@ -145,7 +206,25 @@ class RetrievalService:
     ) -> List[PrecedentMatch]:
         """
         Finds the top 3 most similar historical reviewed documents.
+        Uses Data Engineering /precedent-search in production, falling back to local vector store.
         """
+        if self.use_de_service:
+            try:
+                logger.info("Searching precedents via Data Engineering /precedent-search...")
+                precedents = self.de_client.search_precedents(masked_text, top_k=top_k)
+                if len(precedents) == top_k:
+                    return precedents
+                elif len(precedents) > 0:
+                    return precedents[:top_k]
+            except DataEngineeringError as e:
+                logger.warning(f"Data Engineering precedent search failed ({e}). Falling back to local vector store.")
+
+        return self._local_retrieve_precedents(masked_text, top_k)
+
+    def _local_retrieve_precedents(
+        self, masked_text: str, top_k: int = 3
+    ) -> List[PrecedentMatch]:
+        """Local vector store precedent search for offline/testing development."""
         doc_vec = embedding_service.get_embedding(masked_text)
         matches = self.store.search_precedents(doc_vec, top_k=top_k)
 
