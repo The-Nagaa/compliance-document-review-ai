@@ -6,13 +6,17 @@ Executes 3 specialized retrieval jobs:
 2. Missing Disclosure Detection (detection by absence using similarity thresholds)
 3. Precedent Search (finds top 3 historically reviewed documents)
 
-Production Flow:
-Consumes Data Engineering's HTTP API as the production source of truth.
-Seamlessly falls back to local vector store for local testing/development or transient outages.
+Performance & Reliability:
+- Uses persistent connection pool to Data Engineering service.
+- Features parallelized disclosure checks with deterministic result ordering.
+- Comprehensive non-spamming profiling of retrieval operations.
+- Graceful local vector store fallback for local development or transient outages.
 """
 
+from concurrent.futures import ThreadPoolExecutor, as_completed
 import re
-from typing import List, Optional, Tuple
+import time
+from typing import Dict, List, Optional, Tuple
 from ai.app.core.config import settings
 from ai.app.core.logging import logger, SafeAuditLogger
 from ai.app.models.entities import (
@@ -43,6 +47,7 @@ class RetrievalService:
         store=vector_store,
         de_client: Optional[DataEngineeringClient] = None,
         use_de_service: Optional[bool] = None,
+        max_workers: int = 5,
     ):
         self.store = store
         self.de_client = de_client or data_engineering_client
@@ -51,6 +56,7 @@ class RetrievalService:
             if use_de_service is not None
             else settings.USE_DATA_ENGINEERING_SERVICE
         )
+        self.max_workers = max_workers
 
     @staticmethod
     def chunk_text(text: str, chunk_size: int = 400, overlap: int = 50) -> List[str]:
@@ -58,7 +64,6 @@ class RetrievalService:
         if not text or len(text) <= chunk_size:
             return [text] if text else []
 
-        # Split on paragraph or sentence boundaries
         paragraphs = [p.strip() for p in re.split(r'\n\s*\n|\.\s+', text) if p.strip()]
         chunks: List[str] = []
         current_chunk: List[str] = []
@@ -68,7 +73,6 @@ class RetrievalService:
             p_len = len(p)
             if current_len + p_len > chunk_size and current_chunk:
                 chunks.append(". ".join(current_chunk))
-                # Keep last part for overlap
                 current_chunk = current_chunk[-1:]
                 current_len = sum(len(c) for c in current_chunk)
             current_chunk.append(p)
@@ -87,10 +91,12 @@ class RetrievalService:
         Retrieves compliance rules relevant to the sections of the masked document.
         Uses Data Engineering /rule-lookup in production, falling back to local vector store.
         """
+        start_t = time.perf_counter()
         if self.use_de_service:
             try:
-                logger.info("Retrieving rules via Data Engineering /rule-lookup...")
                 rules = self.de_client.lookup_rules(masked_text)
+                elapsed_ms = (time.perf_counter() - start_t) * 1000
+                logger.info(f"Retrieved {len(rules)} rules via Data Engineering ({elapsed_ms:.2f} ms).")
                 if rules:
                     return rules[:max_total_rules]
             except DataEngineeringError as e:
@@ -109,11 +115,10 @@ class RetrievalService:
             chunk_vec = embedding_service.get_embedding(chunk)
             matches = self.store.search_rules(chunk_vec, top_k=top_k_per_chunk)
             for rule, sim in matches:
-                if sim > 0.15:  # Relevance cutoff
+                if sim > 0.15:
                     if rule.id not in rule_scores or sim > rule_scores[rule.id][1]:
                         rule_scores[rule.id] = (rule, sim)
 
-        # Also search whole document vector to catch holistic themes
         doc_vec = embedding_service.get_embedding(masked_text)
         holistic_matches = self.store.search_rules(doc_vec, top_k=settings.RULE_TOP_K)
         for rule, sim in holistic_matches:
@@ -131,27 +136,70 @@ class RetrievalService:
     ) -> List[DisclosureCheckResult]:
         """
         Checks each standard required disclosure against the document passages.
-        Uses Data Engineering /disclosure-check in production, falling back to local vector store.
+        Uses Data Engineering /disclosure-check in production with connection reuse and profiling.
         """
+        start_t = time.perf_counter()
+        disclosures = self.store.get_all_disclosures()
+        total_disclosures = len(disclosures)
+
         if self.use_de_service:
             try:
-                logger.info("Checking disclosures via Data Engineering /disclosure-check...")
                 chunks = self.chunk_text(masked_text)
-                disclosures = self.store.get_all_disclosures()
-                results: List[DisclosureCheckResult] = []
-                for disc in disclosures:
+                results_by_index: Dict[int, DisclosureCheckResult] = {}
+                disc_timings: List[Tuple[str, float]] = []
+
+                similarity_threshold = threshold if threshold is not None else settings.DISCLOSURE_SIMILARITY_THRESHOLD
+
+                def _check_single(idx: int, disc: Disclosure) -> Tuple[int, str, float, DisclosureCheckResult]:
+                    d_start = time.perf_counter()
                     res = self.de_client.check_disclosure(
                         document_chunks=chunks,
                         disclosure_id=disc.id,
                         disclosure_text=disc.text,
                         disclosure_type=disc.type,
+                        threshold=similarity_threshold,
                     )
-                    results.append(res)
-                return results
+                    d_elapsed = (time.perf_counter() - d_start) * 1000
+                    return idx, disc.id, d_elapsed, res
+
+                # Parallel execution using connection pool
+                workers = min(self.max_workers, max(1, total_disclosures))
+                with ThreadPoolExecutor(max_workers=workers) as executor:
+                    futures = [
+                        executor.submit(_check_single, idx, disc)
+                        for idx, disc in enumerate(disclosures)
+                    ]
+                    for future in as_completed(futures):
+                        idx, disc_id, d_elapsed, res = future.result()
+                        results_by_index[idx] = res
+                        disc_timings.append((disc_id, d_elapsed))
+
+                # Guarantee exact deterministic index ordering
+                ordered_results = [results_by_index[i] for i in range(total_disclosures)]
+                total_elapsed_ms = (time.perf_counter() - start_t) * 1000
+                request_avg_ms = (
+                    sum(duration for _, duration in disc_timings) / len(disc_timings)
+                    if disc_timings
+                    else 0.0
+                )
+                slowest_id, slowest_ms = max(disc_timings, key=lambda x: x[1]) if disc_timings else ("N/A", 0.0)
+
+                # Log consolidated single profiling summary
+                logger.info(
+                    f"DISCLOSURE_PROFILING | total_ms={total_elapsed_ms:.2f} | avg_request_ms={request_avg_ms:.2f} | "
+                    f"requests={total_disclosures} | slowest={slowest_id} ({slowest_ms:.2f} ms)"
+                )
+
+                return ordered_results
+
             except DataEngineeringError as e:
                 logger.warning(f"Data Engineering disclosure check failed ({e}). Falling back to local vector store.")
 
-        return self._local_check_disclosures(masked_text, threshold)
+        # Local fallback execution
+        local_results = self._local_check_disclosures(masked_text, threshold)
+        local_elapsed_ms = (time.perf_counter() - start_t) * 1000
+        logger.info(f"Local disclosure check completed: {len(local_results)} disclosures in {local_elapsed_ms:.2f} ms.")
+        return local_results
 
     def _local_check_disclosures(
         self,
@@ -164,7 +212,6 @@ class RetrievalService:
         disclosures = self.store.get_all_disclosures()
         results: List[DisclosureCheckResult] = []
 
-        # Embed all document chunks once
         chunk_embeddings = [embedding_service.get_embedding(c) for c in chunks]
 
         for disc in disclosures:
@@ -178,7 +225,6 @@ class RetrievalService:
                     best_sim = sim
                     best_chunk = chunks[idx]
 
-            # Also check against full text for short disclosures
             full_doc_vec = embedding_service.get_embedding(masked_text)
             full_sim = embedding_service.cosine_similarity(disc_vec, full_doc_vec)
             if full_sim > best_sim:
@@ -208,10 +254,12 @@ class RetrievalService:
         Finds the top 3 most similar historical reviewed documents.
         Uses Data Engineering /precedent-search in production, falling back to local vector store.
         """
+        start_t = time.perf_counter()
         if self.use_de_service:
             try:
-                logger.info("Searching precedents via Data Engineering /precedent-search...")
                 precedents = self.de_client.search_precedents(masked_text, top_k=top_k)
+                elapsed_ms = (time.perf_counter() - start_t) * 1000
+                logger.info(f"Retrieved {len(precedents)} precedents via Data Engineering ({elapsed_ms:.2f} ms).")
                 if len(precedents) == top_k:
                     return precedents
                 elif len(precedents) > 0:

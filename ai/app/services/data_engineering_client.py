@@ -1,16 +1,19 @@
 """
-Data Engineering HTTP Client.
+Data Engineering HTTP Client with Persistent Connection Pooling.
 
 Integrates with Data Engineering's retrieval service for:
 1. Rule Lookup (/rule-lookup)
 2. Disclosure-by-Absence Check (/disclosure-check)
 3. Precedent Search (/precedent-search)
 
-Guarantees:
+Performance & Privacy Guarantees:
+- Reuses persistent HTTP connection pool across all requests (eliminates per-request handshake latency).
 - Only pre-masked text and chunks are transmitted across the boundary.
-- Non-blocking error handling with graceful fallback.
+- Non-blocking error handling with graceful degradation and local fallback.
+- Explicit resource lifecycle management (close / context manager).
 """
 
+import threading
 from typing import Any, Dict, List, Optional, Tuple
 import httpx
 from ai.app.core.config import settings
@@ -35,16 +38,55 @@ class DataEngineeringTimeout(DataEngineeringError):
 
 class DataEngineeringClient:
     """
-    HTTP client for the Data Engineering retrieval service.
+    HTTP client for Data Engineering retrieval service with session/connection reuse.
     """
 
     def __init__(
         self,
         base_url: Optional[str] = None,
         timeout: Optional[float] = None,
+        max_keepalive_connections: int = 20,
+        max_connections: int = 50,
     ):
         self.base_url = (base_url or settings.DATA_ENGINEERING_BASE_URL).rstrip("/")
         self.timeout = timeout if timeout is not None else settings.DATA_ENGINEERING_TIMEOUT_SECONDS
+        self._limits = httpx.Limits(
+            max_keepalive_connections=max_keepalive_connections,
+            max_connections=max_connections,
+            keepalive_expiry=30.0,
+        )
+        self._client: Optional[httpx.Client] = None
+        self._lock = threading.Lock()
+
+    def _get_client(self) -> httpx.Client:
+        """Thread-safe accessor for reusable httpx.Client instance."""
+        if self._client is None or self._client.is_closed:
+            with self._lock:
+                if self._client is None or self._client.is_closed:
+                    self._client = httpx.Client(
+                        timeout=self.timeout,
+                        limits=self._limits,
+                    )
+        return self._client
+
+    def close(self) -> None:
+        """Close the underlying HTTP client session and release connections."""
+        with self._lock:
+            if self._client is not None and not self._client.is_closed:
+                self._client.close()
+                self._client = None
+
+    def __enter__(self) -> "DataEngineeringClient":
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb) -> None:
+        self.close()
+
+    def __del__(self) -> None:
+        try:
+            self.close()
+        except Exception:
+            pass
 
     def lookup_rules(self, masked_text: str) -> List[Tuple[Rule, float]]:
         """
@@ -56,10 +98,10 @@ class DataEngineeringClient:
         payload = {"text": masked_text}
 
         try:
-            with httpx.Client(timeout=self.timeout) as client:
-                response = client.post(url, json=payload)
-                response.raise_for_status()
-                data = response.json()
+            client = self._get_client()
+            response = client.post(url, json=payload)
+            response.raise_for_status()
+            data = response.json()
         except httpx.TimeoutException as e:
             logger.warning(f"Data Engineering /rule-lookup timed out: {e}")
             raise DataEngineeringTimeout(f"Data Engineering /rule-lookup timed out: {e}") from e
@@ -83,7 +125,6 @@ class DataEngineeringClient:
                 rule = Rule(id=rule_id, text=rule_text, category=category)
                 results.append((rule, score))
 
-        # Sort descending by similarity score
         results.sort(key=lambda x: x[1], reverse=True)
         return results
 
@@ -93,6 +134,7 @@ class DataEngineeringClient:
         disclosure_id: str,
         disclosure_text: str,
         disclosure_type: Optional[str] = None,
+        threshold: Optional[float] = None,
     ) -> DisclosureCheckResult:
         """
         Calls POST /disclosure-check on Data Engineering service.
@@ -119,10 +161,10 @@ class DataEngineeringClient:
         }
 
         try:
-            with httpx.Client(timeout=self.timeout) as client:
-                response = client.post(url, json=payload)
-                response.raise_for_status()
-                data = response.json()
+            client = self._get_client()
+            response = client.post(url, json=payload)
+            response.raise_for_status()
+            data = response.json()
         except httpx.TimeoutException as e:
             logger.warning(f"Data Engineering /disclosure-check timed out for {disclosure_id}: {e}")
             raise DataEngineeringTimeout(f"Data Engineering /disclosure-check timed out: {e}") from e
@@ -136,12 +178,19 @@ class DataEngineeringClient:
             logger.warning(f"Data Engineering /disclosure-check unexpected error for {disclosure_id}: {e}")
             raise DataEngineeringError(f"Data Engineering /disclosure-check error: {e}") from e
 
+        score = round(float(data.get("similarity_score", 0.0)), 4)
+        if threshold is not None:
+            is_present = score >= threshold
+        else:
+            is_present = bool(data.get("present", False))
+
+        resolved_type = disclosure_type or data.get("disclosure_type") or disclosure_id
         return DisclosureCheckResult(
             disclosure_id=data.get("disclosure_id", disclosure_id),
-            disclosure_type=data.get("disclosure_type", disclosure_type or disclosure_id),
+            disclosure_type=resolved_type,
             disclosure_text=disclosure_text,
-            is_present=bool(data.get("present", False)),
-            similarity_score=round(float(data.get("similarity_score", 0.0)), 4),
+            is_present=is_present,
+            similarity_score=score,
             best_matching_passage=data.get("matched_chunk_id"),
         )
 
@@ -167,10 +216,10 @@ class DataEngineeringClient:
         payload = {"text": masked_text}
 
         try:
-            with httpx.Client(timeout=self.timeout) as client:
-                response = client.post(url, json=payload)
-                response.raise_for_status()
-                data = response.json()
+            client = self._get_client()
+            response = client.post(url, json=payload)
+            response.raise_for_status()
+            data = response.json()
         except httpx.TimeoutException as e:
             logger.warning(f"Data Engineering /precedent-search timed out: {e}")
             raise DataEngineeringTimeout(f"Data Engineering /precedent-search timed out: {e}") from e
@@ -205,7 +254,6 @@ class DataEngineeringClient:
                     )
                 )
 
-        # Sort descending by similarity and clamp to exactly top_k
         results.sort(key=lambda x: x.similarity, reverse=True)
         return results[:top_k]
 

@@ -201,3 +201,29 @@ def test_data_engineering_http_500_error_handling(de_client):
 
         with pytest.raises(DataEngineeringError):
             de_client.lookup_rules("Sample text")
+
+
+# --- 7. Session Reuse & Lifecycle Cleanup ---
+
+def test_data_engineering_client_session_reuse():
+    client = DataEngineeringClient(base_url="http://test-de:5000")
+    s1 = client._get_client()
+    s2 = client._get_client()
+    assert s1 is s2
+    assert not s1.is_closed
+
+    client.close()
+    assert s1.is_closed
+
+    # Reopening creates a fresh open session
+    s3 = client._get_client()
+    assert s3 is not s1
+    assert not s3.is_closed
+    client.close()
+
+
+def test_data_engineering_client_context_manager():
+    with DataEngineeringClient(base_url="http://test-de:5000") as client:
+        session = client._get_client()
+        assert not session.is_closed
+    assert session.is_closed

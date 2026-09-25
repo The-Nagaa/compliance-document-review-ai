@@ -106,15 +106,16 @@ Account Number: 123456789012"""
         }
         
         def capture_post(url, json=None, **kwargs):
-            intercepted_requests.append(json)
+            intercepted_requests.append((url, json))
             return mock_resp
 
         mock_post.side_effect = capture_post
 
         analysis_svc.process_document("doc_privacy_audit", test_doc)
 
-    assert len(intercepted_requests) == 1
-    sent_payload_str = str(intercepted_requests[0])
+    gemini_requests = [req for url, req in intercepted_requests if "generativelanguage" in str(url) or "systemInstruction" in str(req)]
+    assert len(gemini_requests) == 1
+    sent_payload_str = str(gemini_requests[0])
 
     # 1. Assert all placeholders exist in outbound Gemini payload
     assert "[CLIENT_1]" in sent_payload_str
@@ -124,9 +125,11 @@ Account Number: 123456789012"""
     assert "[ADDRESS_1]" in sent_payload_str
     assert "[AMOUNT_1]" in sent_payload_str
 
-    # 2. Strict assertion: Prove raw PII tokens are completely absent from outbound payload
-    for pii in raw_pii_tokens:
-        assert pii not in sent_payload_str, f"Privacy Breach! Raw PII token '{pii}' was sent to Gemini!"
+    # 2. Strict assertion: Prove raw PII tokens are completely absent from ALL outbound payloads (Gemini + DE)
+    for url, req in intercepted_requests:
+        req_str = str(req)
+        for pii in raw_pii_tokens:
+            assert pii not in req_str, f"Privacy Breach! Raw PII token '{pii}' was sent to {url}!"
 
 
 def test_embedding_pipeline_receives_masked_text_only():
