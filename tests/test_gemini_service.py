@@ -75,7 +75,7 @@ def test_valid_gemini_response_parsing(sample_rules):
 
 
 def test_gemini_rate_limit_429(sample_rules):
-    svc = GeminiService(api_key="fake-key")
+    svc = GeminiService(api_key="fake-key", backoff_schedule=(0.001, 0.001))
 
     with patch("httpx.Client.post") as mock_post:
         mock_resp = MagicMock()
@@ -85,20 +85,21 @@ def test_gemini_rate_limit_429(sample_rules):
 
         with pytest.raises(AIRateLimited):
             svc.analyze_compliance("Sample text", sample_rules, "doc_ratelimit")
+        assert mock_post.call_count == 3  # Initial + 2 retries
 
 
 def test_gemini_timeout(sample_rules):
-    svc = GeminiService(api_key="fake-key")
+    svc = GeminiService(api_key="fake-key", backoff_schedule=(0.001, 0.001))
 
-    with patch("httpx.Client.post", side_effect=httpx.TimeoutException("Read timed out")):
+    with patch("httpx.Client.post", side_effect=httpx.TimeoutException("Read timed out")) as mock_post:
         with pytest.raises(AITimeout):
             svc.analyze_compliance("Sample text", sample_rules, "doc_timeout")
+        assert mock_post.call_count == 3  # Initial + 2 retries
 
 
 def test_gemini_malformed_json_fallback(sample_rules):
     svc = GeminiService(api_key="fake-key")
 
-    # LLM returns text with summary in markdown format but unparseable JSON array
     mock_gemini_payload = {
         "candidates": [
             {
@@ -115,14 +116,13 @@ def test_gemini_malformed_json_fallback(sample_rules):
         mock_resp.json.return_value = mock_gemini_payload
         mock_post.return_value = mock_resp
 
-        # Should recover summary gracefully without crashing
         result = svc.analyze_compliance("Sample text", sample_rules, "doc_malformed")
         assert result.summary == "Quarterly market review document for retail investors."
         assert isinstance(result.flags, list)
 
 
 def test_gemini_invalid_api_key_403(sample_rules):
-    svc = GeminiService(api_key="invalid-api-key")
+    svc = GeminiService(api_key="invalid-api-key", backoff_schedule=(0.001, 0.001))
 
     with patch("httpx.Client.post") as mock_post:
         mock_resp = MagicMock()
@@ -132,4 +132,61 @@ def test_gemini_invalid_api_key_403(sample_rules):
 
         with pytest.raises(AIConfigurationError):
             svc.analyze_compliance("Sample text", sample_rules, "doc_invalid_key")
+        assert mock_post.call_count == 1  # Fails fast without retrying
 
+
+def test_gemini_transient_503_retry_success(sample_rules):
+    svc = GeminiService(api_key="fake-key", backoff_schedule=(0.001, 0.001))
+
+    mock_llm_json = {
+        "summary": "Recovered after 503 retry.",
+        "flags": []
+    }
+    mock_payload = {
+        "candidates": [{"content": {"parts": [{"text": json.dumps(mock_llm_json)}]}}]
+    }
+
+    resp_503 = MagicMock(status_code=503, text="Service Unavailable")
+    resp_200 = MagicMock(status_code=200, json=MagicMock(return_value=mock_payload))
+
+    with patch("httpx.Client.post", side_effect=[resp_503, resp_200]) as mock_post:
+        result = svc.analyze_compliance("Sample text", sample_rules, "doc_503_recovery")
+        assert result.summary == "Recovered after 503 retry."
+        assert mock_post.call_count == 2
+
+
+def test_gemini_transient_503_exhausted_raises_unavailable(sample_rules):
+    svc = GeminiService(api_key="fake-key", backoff_schedule=(0.001, 0.001))
+    resp_503 = MagicMock(status_code=503, text="Service Unavailable")
+
+    with patch("httpx.Client.post", return_value=resp_503) as mock_post:
+        with pytest.raises(AIUnavailable) as exc_info:
+            svc.analyze_compliance("Sample text", sample_rules, "doc_503_exhausted")
+        assert "503" in str(exc_info.value)
+        assert mock_post.call_count == 3  # Initial + 2 retries
+
+
+def test_gemini_non_retryable_404_fails_fast(sample_rules):
+    svc = GeminiService(api_key="fake-key", backoff_schedule=(0.001, 0.001))
+    resp_404 = MagicMock(status_code=404, text="Model Not Found")
+
+    with patch("httpx.Client.post", return_value=resp_404) as mock_post:
+        with pytest.raises(AIConfigurationError):
+            svc.analyze_compliance("Sample text", sample_rules, "doc_404_fast")
+        assert mock_post.call_count == 1  # Exactly 1, no retries
+
+
+def test_gemini_service_session_reuse():
+    svc = GeminiService(api_key="test-key")
+    c1 = svc._get_client()
+    c2 = svc._get_client()
+    assert c1 is c2
+    assert not c1.is_closed
+
+    svc.close()
+    assert c1.is_closed
+
+    c3 = svc._get_client()
+    assert c3 is not c1
+    assert not c3.is_closed
+    svc.close()

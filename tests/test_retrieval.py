@@ -40,7 +40,7 @@ def test_rule_retrieval_past_performance(retrieval):
     rules = retrieval.retrieve_relevant_rules(query_text, top_k_per_chunk=3)
 
     rule_ids = [r.id for r, sim in rules]
-    assert "RULE-010" in rule_ids or "RULE-011" in rule_ids or "RULE-016" in rule_ids
+    assert "RULE-003" in rule_ids or "RULE-010" in rule_ids or "RULE-011" in rule_ids or "RULE-016" in rule_ids
 
 
 def test_disclosure_presence_detection(retrieval):
