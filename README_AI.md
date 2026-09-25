@@ -4,7 +4,7 @@
 
 ---
 
-## 1. Architectural Overview
+## 1. Architectural Overview & Retrieval Flow
 
 ```
                       +------------------------------------------+
@@ -28,12 +28,14 @@
                         v                                     v
          +------------------------------+     +------------------------------+
          |    VECTOR RETRIEVAL ENGINE   |     |    PRIVACY-SAFE GEMINI LLM   |
-         |  1. Applicable Rules Retrieval |     |  - System Instruction        |
-         |  2. Missing Disclosures (Absence)  | Grounded |  - Pydantic Schema Validation|
-         |  3. Top-3 Precedents Search  |====>|  - Traceable Compliance Flags|
-         +--------------+---------------+     |  - Summary Generation        |
-                        |                     +--------------+---------------+
-                        +------------------+-----------------+
+         |  - Persistent HTTP Pool      |     |  - System Instruction        |
+         |  1. Rule Lookup (/rule-lookup|     |  - Pydantic Schema Validation|
+         |  2. Parallel Disclosure Check|====>|  - Traceable Compliance Flags|
+         |  3. Precedent Search (Top 3) |     |  - Summary Generation        |
+         |  - Local Vector Fallback     |     |  - Error Degradation Handling|
+         +--------------+---------------+     +--------------+---------------+
+                        |                                     |
+                        +------------------+------------------+
                                            |
                                            v
                       +------------------------------------------+
@@ -48,48 +50,94 @@
                       |          BACKEND / FRONTEND API          |
                       |  - Flags with Passage/Rule/Reason        |
                       |  - Top 3 Similar Past Precedents        |
-                      |  - Document Summary & Degraded States    |
+                      |  - Missing Disclosures & Summary         |
                       +------------------------------------------+
 ```
 
+### Retrieval & Analysis Execution Flow
+1. **Ingress & Privacy Wall**: When a document is submitted, the Privacy Wall detects sensitive entities (clients, emails, phones, SSNs, accounts, addresses, monetary amounts) and replaces them with deterministic placeholders (`[CLIENT_1]`, `[ACCOUNT_1]`). The raw PII mapping remains strictly on the server and is never transmitted outward.
+2. **Retrieval Grounding**:
+   - The pre-masked text is queried against Data Engineering's production retrieval endpoints using a persistent HTTP connection pool.
+   - **Rule Lookup**: Fetches relevant compliance rules to ground the LLM analysis.
+   - **Parallel Disclosure Check**: Checks document passages concurrently across all mandatory standard disclosures via a bounded thread pool, preserving deterministic index ordering.
+   - **Precedent Search**: Fetches the Top 3 historical review precedents.
+   - **Fallback Mechanism**: If the Data Engineering service is unreachable, retrieval seamlessly falls back to the local `vector_store.json` using matching 384-dimensional embeddings.
+3. **LLM Analysis & Verification**: Grounded context is sent to Gemini (Free Tier) to generate an executive summary and traceable compliance flags.
+4. **Caching & Egress**: The complete result is cached locally by document ID for instant retrieval upon subsequent requests.
+
 ---
 
-## 2. Core Architectural Guarantees
+## 2. Core Architectural Guarantees & Assistive Design
 
 1. **Privacy-First Boundary**:
-   - Document text is masked server-side *before* any text is sent to Gemini or embedding APIs.
+   - Document text is masked server-side *before* any text is sent to Gemini, Data Engineering, or embedding services.
    - Placeholders are deterministic (`[CLIENT_1]`, `[EMAIL_1]`, `[ACCOUNT_1]`, `[SSN_1]`, `[ADDRESS_1]`, `[AMOUNT_1]`).
    - The mapping (`[CLIENT_1] -> John Doe`) stays server-side and is **never** serialized to vendor APIs or the frontend.
-2. **AI Never Decides**:
-   - The AI system **never** sets, recommends-and-applies, or pre-fills review verdicts (`Approved`, `Rejected`, `Needs Revision`).
-   - All compliance flags provide exact evidence (triggering passage, matched rule ID, matched rule description, and one-line explanation).
-   - The Compliance Officer makes the final decision.
+2. **AI Remains Strictly Assistive (Human Decision-Maker Guarantee)**:
+   - The AI system **never** makes, applies, or overrides final review verdicts (`approved`, `rejected`, `needs_revision`).
+   - The AI serves solely as an assistive tool to highlight potential issues, providing exact passage excerpts, matched rule descriptions, severity levels, and reasoning.
+   - The human compliance officer retains full authority and makes the final compliance decision.
 3. **Non-Blocking Graceful Degradation**:
-   - If the Gemini API is down, rate-limited (HTTP 429), times out, or has a missing API key, the review page continues to load normally.
-   - Structured error statuses (`unavailable`, `rate_limited`, `failed`) are returned with retryability flags.
-   - Local vector store assists (precedent matches and missing disclosure detection) continue to operate.
+   - If the Gemini API is unavailable, rate-limited (HTTP 429), times out, or has an unconfigured API key, the review page continues to function.
+   - Structured error statuses (`unavailable`, `rate_limited`, `failed`) are returned alongside `retryable` flags.
+   - Retrieval assists (precedent matches and missing disclosure checks) remain functional even when LLM analysis is degraded.
 
 ---
 
-## 3. Vector Retrieval Architecture
+## 3. Retrieval Architecture & Performance Optimizations
 
-The vector retrieval layer operates over three corpora:
+The retrieval pipeline incorporates several performance optimizations designed for high throughput and stability:
 
-### A. Rule Retrieval (Grounding)
-- **Corpus**: 35 compliance rules spanning Prohibited Claims, Performance Standards, Required Disclosures, Testimonials, and Supervision.
-- **Mechanism**: Paragraph-aware document chunks are embedded and queried against rule embeddings to provide the LLM with grounded context.
+### A. Persistent HTTP Connection Pooling
+- Handled in `DataEngineeringClient` via `httpx.Client` with configured connection limits (`max_keepalive_connections=20`, `max_connections=50`, `keepalive_expiry=30.0s`).
+- Reuses open TCP/TLS connections across consecutive and parallel HTTP requests to the Data Engineering service, eliminating repeated handshake latencies.
+- Implements thread-safe client lifecycle management with explicit `close()` and Python context manager (`__enter__` / `__exit__`) support.
 
-### B. Missing Disclosure Detection by Absence
-- **Corpus**: 25 standard disclosures (SEC RIA, SIPC/FINRA, Risk of Loss, Form ADV, Tax Advice, etc.).
-- **Mechanism**: Computes maximum cosine similarity across document passages against mandatory boilerplate disclosures. If the maximum similarity is below a configurable threshold (default `0.75`), the disclosure is automatically flagged as **MISSING**.
+### B. Parallel Disclosure Retrieval (Bounded Thread Pool)
+- Evaluates document passages against all mandatory disclosures in parallel using a `ThreadPoolExecutor` (bounded to `max_workers=5`).
+- Dispatches individual `/disclosure-check` requests concurrently across the persistent connection pool.
 
-### C. Precedent Search (Top 3)
-- **Corpus**: 100 historically reviewed synthetic submissions with historical officer comments and decisions (`approved`, `rejected`, `needs_revision`).
-- **Mechanism**: Computes document-level semantic similarity and returns exactly the **Top 3 Most Similar Precedents**.
+### C. Deterministic Result Ordering
+- As parallel disclosure workers finish (`as_completed`), results are indexed by their original position.
+- Results are reassembled in strict original sequence before returning, ensuring 100% deterministic output ordering regardless of thread scheduling.
+- Logs unified execution metrics per document:
+  ```text
+  DISCLOSURE_PROFILING | total_ms=... | avg_request_ms=... | requests=25 | slowest=... (...)
+  ```
+  where `avg_request_ms` is the exact arithmetic mean duration of individual disclosure requests.
+
+### D. Data Engineering Shared Embedding Model Reuse
+- Data Engineering serves as the production single source of truth for rules, disclosures, and precedents.
+- Data Engineering maintains a singleton instance of the `sentence-transformers/all-MiniLM-L6-v2` (384 dimensions) embedding model.
+- Model weights are loaded once into memory during service initialization and reused across all requests, eliminating redundant model reloads.
+
+### E. Retrieval Corpora Details
+- **Rule Retrieval (Grounding)**: 34+ compliance rules spanning Prohibited Claims, Performance Standards, Required Disclosures, Testimonials, and Supervision (`POST /rule-lookup`).
+- **Missing Disclosure Detection (Absence)**: 25 standard disclosures (SEC RIA, SIPC/FINRA, Risk of Loss, Form ADV, Tax Advice, etc.) queried against document chunks (`POST /disclosure-check`).
+- **Precedent Search (Top 3)**: 100 historically reviewed synthetic submissions returning the top 3 most semantically similar precedents with prior officer comments (`POST /precedent-search`).
+- **Local Fallback**: AI maintains a local `vector_store.json` using the matching 384D `all-MiniLM-L6-v2` embeddings for offline development and fallback.
 
 ---
 
-## 4. API Endpoints Contract
+## 4. Performance Benchmarking
+
+A standalone benchmarking script is provided to profile component latencies, memory footprint, and pipeline throughput:
+
+```powershell
+python scripts/benchmark_performance.py
+```
+
+### Benchmark Scope
+1. **Data Engineering Startup & Initialization**: Measures import and initial model weight loading time and traced peak memory usage.
+2. **Granular Component Latencies**: Measures isolated retrieval latencies for Rule Lookup, 25-item Parallel Disclosure Check, and Top-3 Precedent Search.
+3. **End-to-End Pipeline**: Measures Cold Document Analysis (first-time processing) vs Warm Cached Analysis (sub-millisecond cache hit).
+
+> [!NOTE]
+> **Environment-Dependent Measurements**: Benchmark latencies and memory figures depend heavily on hardware specifications (CPU architecture, RAM, SSD I/O, network). All benchmark timings should be interpreted as local relative measurements rather than absolute SLAs.
+
+---
+
+## 5. API Endpoints Contract
 
 ### Base URL: `http://localhost:8000/ai`
 
@@ -104,7 +152,7 @@ The vector retrieval layer operates over three corpora:
 
 ---
 
-## 5. API Schemas
+## 6. API Schemas
 
 ### `POST /ai/analyze/{document_id}` Request Body:
 ```json
@@ -142,7 +190,7 @@ The vector retrieval layer operates over three corpora:
   "disclosures_checked": [
     {
       "disclosure_id": "DISC-001",
-      "disclosure_type": "SEC_RIA_DISCLOSURE",
+      "disclosure_type": "SEC_RIA",
       "disclosure_text": "Advisory services offered through...",
       "is_present": false,
       "similarity_score": 0.231,
@@ -168,13 +216,13 @@ The vector retrieval layer operates over three corpora:
   "generated_at": "2026-08-28T05:52:10.123456Z",
   "cached": false,
   "message": "AI assist unavailable: Gemini API key is not configured. The document is still accessible for manual review.",
-  "retryable": false
+  "retryable": true
 }
 ```
 
 ---
 
-## 6. Known PII Masking Limitations
+## 7. Known PII Masking Limitations
 
 1. **Context-Free Single Names**: First names appearing without structural cues (e.g. "Bob said we should invest") are not aggressively masked to prevent false positives on standard financial terminology (e.g. "Dow Jones", "Treasury Bond").
 2. **International Addresses**: Non-standard postal address structures without street/avenue/road suffixes or city/state/zip indicators may not be captured.
@@ -182,7 +230,7 @@ The vector retrieval layer operates over three corpora:
 
 ---
 
-## 7. Setup & Execution Commands
+## 8. Setup & Execution Commands
 
 ### Prerequisites
 - Python 3.11+
@@ -194,38 +242,44 @@ pip install -r requirements.txt
 ```
 
 ### Environment Configuration
-Copy `.env.example` to `.env` and optionally set your Gemini API key:
+Copy `.env.example` to `.env` and set configuration parameters:
 ```powershell
 cp .env.example .env
 ```
 
-### 1. Seed Corpus
-Populate the vector store with 35 compliance rules, 25 disclosures, and 100 reviewed synthetic precedents:
+### 1. Seed Local Fallback Corpus
+Populate the local vector store with compliance rules, mandatory disclosures, and historical precedents (used for offline development and fallback):
 ```powershell
 python scripts/seed_corpus.py
 ```
 
 ### 2. Run Test Suite
-Run the complete unit and integration test suite:
+Run the full automated test suite (71+ unit and integration tests):
 ```powershell
-pytest tests/ -v --cov=ai.app
+python -m pytest -q
 ```
 
-### 3. Run Acceptance Demo
+### 3. Run Performance Benchmark
+Profile retrieval components, parallel execution throughput, and memory peak:
+```powershell
+python scripts/benchmark_performance.py
+```
+
+### 4. Run Acceptance Demo
 Execute the full 13-step demonstration sequence:
 ```powershell
 python scripts/acceptance_demo.py
 ```
 
-### 4. Start the FastAPI Service
+### 5. Start the FastAPI Service
 ```powershell
 uvicorn ai.app.main:app --host 0.0.0.0 --port 8000 --reload
 ```
-Interactive Swagger API documentation will be available at: `http://localhost:8000/docs`
+Interactive Swagger API documentation is available at: `http://localhost:8000/docs`
 
 ---
 
-## 8. Cross-Track Integration Notes
+## 9. Cross-Track Integration Notes
 
 - **Backend Track**:
   - Call `POST /ai/analyze/{document_id}` with `{ "document_id": "...", "extracted_text": "..." }` when an advisor submits a document.
@@ -237,7 +291,8 @@ Interactive Swagger API documentation will be available at: `http://localhost:80
   - Render `precedents` (Top 3) with similarity score bar, previous decision chip, and historical officer comment.
   - If `status == "unavailable"` or `"rate_limited"`, show an alert banner with a `Retry AI Analysis` button calling `POST /ai/analyze/{document_id}/retry`.
 - **Data Engineering Track**:
-  - Pass clean UTF-8 text extracted from PDF, DOCX, or XLSX directly into `extracted_text`.
+  - Data Engineering service runs on `http://localhost:5000` (configurable via `DATA_ENGINEERING_BASE_URL`).
+  - Implements `/rule-lookup`, `/disclosure-check`, and `/precedent-search`.
+  - Reuses a shared `all-MiniLM-L6-v2` 384-dimensional embedding model instance across endpoints.
 - **DevOps Track**:
-  - Dockerized deployment can mount `./data` as a volume for cached analyses and vector indices.
-  - To migrate vector storage to PostgreSQL + pgvector, use the schema generated by `VectorStore.export_pgvector_sql()`.
+  - Dockerized deployment can mount `./data` as a volume for cached analyses.
